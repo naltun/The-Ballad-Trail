@@ -5,6 +5,9 @@ class BalladController < ApplicationController
   def signup
   end
 
+  def contact
+  end
+
   def about
   end
 end
