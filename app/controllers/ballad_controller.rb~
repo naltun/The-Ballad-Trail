@@ -1,4 +1,0 @@
-class BalladController < ApplicationController
-  def home
-  end
-end
