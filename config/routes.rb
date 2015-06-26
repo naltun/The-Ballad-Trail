@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-root 'ballad#home'
+root to: 'ballad#home'
 
-get '/home', to: 'ballad#signup'
-get '/about', to: 'ballad#signup'
-get '/contact', to: 'ballad#signup'
+get '/home', to: 'ballad#home'
+get '/about', to: 'ballad#about'
+get '/contact', to: 'ballad#contact'
 get '/signup', to: 'ballad#signup'
 end
