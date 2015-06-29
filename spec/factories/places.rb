@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :place do
-    name "MyString"
-    latitude "9.99"
-    longitude "9.99"
-    region "MyString"
+    name "Claypotts Castle"
+    latitude "56.476643"
+    longitude "-2.889705"
+    region "Dundee"
   end
 end
