@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+	resources :places
+
+	
 	root to: 'ballad#home'
 
 	get '/home', to: 'ballad#home'
