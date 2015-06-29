@@ -1,10 +1,5 @@
 require 'rails_helper'
 
-describe Place do |
-	it "is valid with a name, latitude and longitude"
-	it "is invalid without a name"
-	it "is invalid without a latitude"
-	it "is invalid without a longitude"
-end|
-	
+RSpec.describe Place, :type => :model do
+  pending "add some examples to (or delete) #{__FILE__}"
 end
