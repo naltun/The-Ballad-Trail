@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>The Ballad Trail </title>
-</head>
-<body>
+	<head>
+		<title> The Ballad Trail </title>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  		<%= csrf_meta_tags %>
+	</head>
+	<body>
 
- <ul>
-	<li><%= link_to 'Home', home_path %></li>
-	<li><%= link_to 'Contact us', contact_path %></li>
-	<li><%= link_to 'About', about_path %></li>
-	<li><%= link_to 'Sign Up!', signup_path %></li>
- </ul> 
+ 		<ul>
+			<li><%= link_to 'Home', home_path %></li>
+			<li><%= link_to 'Contact us', contact_path %></li>
+			<li><%= link_to 'About', about_path %></li>
+			<li><%= link_to 'Sign Up!', signup_path %></li>
+		 </ul> 
 
 
-<%= yield %>
+		<%= yield %>
 
-</body>
+	</body>
 </html>
