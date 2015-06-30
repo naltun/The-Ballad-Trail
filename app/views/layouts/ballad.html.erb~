@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<<<<<<< HEAD
+  <title>TheBalladTrail</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body>
+=======
+<title>The Ballad Trail </title>
+</head>
+<body>
+
+ <ul>
+	<li><%= link_to 'Home', home_path %></li>
+	<li><%= link_to 'Contact us', contact_path %></li>
+	<li><%= link_to 'About', about_path %></li>
+	<li><%= link_to 'Sign Up!', signup_path %></li>
+ </ul> 
+
+>>>>>>> 10bebce0de794a7b6631a303fe313e8e49fc5055
+
+<%= yield %>
+
+</body>
+</html>
