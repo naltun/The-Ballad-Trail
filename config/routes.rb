@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 	resources :places
 
-	
+	get '/index', to: 'places#index'
+
 	root to: 'ballad#home'
 
+	
 	get '/home', to: 'ballad#home'
 	get '/about', to: 'ballad#about'
 	get '/contact', to: 'ballad#contact'
