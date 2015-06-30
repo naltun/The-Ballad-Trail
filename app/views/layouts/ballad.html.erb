@@ -6,12 +6,18 @@
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  	<style type="text/css">
-  html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+  
+  <!-- Add styles to map -->
+  <style type="text/css">
+  	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
 	</style>
+	
+	<!-- Connects to Google Javascript API -->
 	<script type="text/javascript"
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz0j_R1FllX2cnZ_lJIsgZJtMitbI6vOY">
 	</script>
+	
+	<!-- Initializes map and creates map object -->
 	<script type="text/javascript">
 	  function initialize() {
 	    var mapOptions = {
@@ -28,24 +34,26 @@
 
 <body>
 
-<h3> The Ballad Trail </h3>
-<ul>
-	<%= link_to 'Home', home_path %>
-	<%= link_to 'Contact us', contact_path %>
-	<%= link_to 'About', about_path %>
-	<%= link_to 'Sign Up!', signup_path %>
- </ul> 
+	<h3> The Ballad Trail </h3>
+		<ul>
+		<%= link_to 'Home', home_path %>
+		<%= link_to 'Contact us', contact_path %>
+		<%= link_to 'About', about_path %>
+		<%= link_to 'Sign Up!', signup_path %>
+ 	</ul> 
 
- 	<div id="menu_box">
- 		<style type="text/css">
- 		#menu_box {float: left; height: 100%; width:40%; background-color: blue;}
- 		</style>
+	<div id="menu_box">
+	
+		<style type="text/css">
+			#menu_box {float: left; height: 100%; width:40%; background-color: blue;}
+	 	</style>
 
 		<%= yield %>
 		
 	</div>
 
-<div id="map-canvas"></div>
+	<!-- Adds map to screen -->
+	<div id="map-canvas"></div>
 
 </body>
 </html>
