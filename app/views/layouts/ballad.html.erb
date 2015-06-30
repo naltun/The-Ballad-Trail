@@ -35,17 +35,22 @@
 <body>
 
 	<h3> The Ballad Trail </h3>
-		<ul>
-		<%= link_to 'Home', home_path %>
-		<%= link_to 'Contact us', contact_path %>
-		<%= link_to 'About', about_path %>
-		<%= link_to 'Sign Up!', signup_path %>
- 	</ul> 
+	<nav class="nav">
+		<style type="text/css">
+			.nav {margin-right: 40px; position: relative;}
+		</style>
 
+		<ul>
+			<%= link_to 'Home', home_path %>
+			<%= link_to 'Contact us', contact_path %>
+			<%= link_to 'About', about_path %>
+			<%= link_to 'Sign Up!', signup_path %>
+	 	</ul> 
+ 	</nav>
 	<div id="menu_box">
 	
 		<style type="text/css">
-			#menu_box {float: left; height: 100%; width:40%; background-color: blue;}
+			#menu_box {float: left; height: 100%; width:30%; background-color: blue; padding: 20px;}
 	 	</style>
 
 		<%= yield %>
