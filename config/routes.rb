@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   devise_for :end_users
 	resources :places
 	resources :songs
+	resources :poems
 
+	get '/index', to: 'poems#index'
 	get '/index', to: 'songs#index'
 	get '/index', to: 'places#index'
 	

@@ -34,7 +34,7 @@ class SongsController < ApplicationController
 	def find_song
 	end
 
-	def place_params
+	def song_params
 		params.require(:song).permit(:title, :description, :link, :lyrics)
 	end
 
