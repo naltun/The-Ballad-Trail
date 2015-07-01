@@ -3,23 +3,12 @@
 
 <head>
 
-
   <title>TheBalladTrail</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
 
-
-<body>
-
-
-
-	<title>The Ballad Trail </title>
-	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  
   <!-- Add styles to map -->
   <style type="text/css">
   	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
@@ -42,7 +31,6 @@
 	  }
 	  google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-
 
 </head>
 
@@ -67,7 +55,8 @@
 	</div>
 
 
-<%= yield %>
+	<%= yield %>
+	
 	<!-- Adds map to screen -->
 	<div id="map-canvas"></div>
 
