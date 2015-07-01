@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :end_users
 	resources :places
 	resources :songs
 
