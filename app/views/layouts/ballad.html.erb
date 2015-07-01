@@ -6,16 +6,13 @@
 	<meta charset="utf-8">
 =======
 
-
   <title>TheBalladTrail</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
 
-
-<body>
-
+<<<<<<< HEAD
 
 
 >>>>>>> 1e7192cacb594a9219e35848abfb52f7d6982eec
@@ -24,6 +21,8 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   
+=======
+>>>>>>> 006a28f8efa5d989dbd7493e6226cab5b99337a4
   <!-- Add styles to map -->
   <style type="text/css">
   	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
@@ -46,7 +45,6 @@
 	  }
 	  google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
-
 
 </head>
 
@@ -88,7 +86,8 @@
 	</div>
 
 
-<%= yield %>
+	<%= yield %>
+	
 	<!-- Adds map to screen -->
 	<div id="map-canvas"></div>
 
