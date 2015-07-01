@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
 	<title>The Ballad Trail </title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -30,34 +31,26 @@
 	  google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
 
+
 </head>
 
 <body>
 
 	<h3> The Ballad Trail </h3>
-	<nav class="nav">
-		<style type="text/css">
-			.nav {margin-right: 40px; position: relative;}
-		</style>
+	<ul id="menu">
+	  <li>Menu
+	    <ul>
+	      <%= link_to 'Home', home_path %>
+	      <%= link_to 'Contact us', contact_path %>
+	      <%= link_to 'About', about_path %>
+	      <%= link_to 'Sign Up!', signup_path %>
+	    </ul> 
+	   </li>
+	</ul> 	
+		<div id="menu_box">
+			<%= yield %>		
+		</div>
 
-		<ul>
-			<%= link_to 'Home', home_path %>
-			<%= link_to 'Contact us', contact_path %>
-			<%= link_to 'About', about_path %>
-			<%= link_to 'Sign Up!', signup_path %>
-	 	</ul> 
- 	</nav>
-	<div id="menu_box">
-	
-		<style type="text/css">
-			#menu_box {float: left; height: 100%; width:30%; background-color: blue; padding: 20px;}
-	 	</style>
-
-		<%= yield %>
-		
-	</div>
-
-	<div id="map-canvas"></div>
-
+		<div id="map-canvas"></div>
 </body>
 </html>
