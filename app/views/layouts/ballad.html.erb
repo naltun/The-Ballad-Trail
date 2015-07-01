@@ -2,7 +2,23 @@
 <html>
 
 <head>
+<<<<<<< HEAD
 	<meta charset="utf-8">
+=======
+
+
+  <title>TheBalladTrail</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+
+
+<body>
+
+
+
+>>>>>>> 1e7192cacb594a9219e35848abfb52f7d6982eec
 	<title>The Ballad Trail </title>
 	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -37,6 +53,7 @@
 <body>
 
 	<h3> The Ballad Trail </h3>
+<<<<<<< HEAD
 	<ul id="menu">
 	  <li>Menu
 	    <ul>
@@ -52,5 +69,30 @@
 		</div>
 
 		<div id="map-canvas"></div>
+=======
+		<ul>
+		<%= link_to 'Home', home_path %>
+		<%= link_to 'Contact us', contact_path %>
+		<%= link_to 'About', about_path %>
+		<%= link_to 'Sign Up!', signup_path %>
+ 	</ul> 
+
+	<div id="menu_box">
+	
+		<style type="text/css">
+			#menu_box {float: left; height: 100%; width:40%; background-color: blue;}
+	 	</style>
+
+		<%= yield %>
+		
+	</div>
+
+
+<%= yield %>
+	<!-- Adds map to screen -->
+	<div id="map-canvas"></div>
+
+
+>>>>>>> 1e7192cacb594a9219e35848abfb52f7d6982eec
 </body>
 </html>
