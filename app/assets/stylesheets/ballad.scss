@@ -3,9 +3,10 @@
 	float: left; 
 	height: 100%; 
 	width:30%; 
-	background-color: blue; 
+	background-color: #64FE2E; 
 	padding: 20px; 
-	text-align: right
+	text-align: right;
+	border-radius: 25px;
 }
 
 body {
@@ -45,18 +46,18 @@ nav ul:after {
 }
 
 
-nav li { 
+nav li a{ 
 	display:block; 
 	text-decoration:none; 
 	text-colour: black;
 }
 
-nav li:focus { 
+nav li a:focus { 
 	outline:none; 
 	text-decoration:underline; 
 }
 
-nav span { 
+nav a span { 
 	display:block;
 	width:100%; 
 	float:left; 
@@ -71,13 +72,17 @@ nav ul ul {
 	border: 1px solid #CC9900 
 }
 
-nav ul ul:hover { 
+nav ul ul a:hover { 
 	background-color:#F5F5CC; 
 	width:100%; 
 }
 
-nav ul ul {
+nav ul ul a {
 	padding:10px 0px;  
 	border-right:none; 
 	font:11px, Times New Roman; 
+}
+
+#map-canvas {
+	border-radius: 25px;
 }
