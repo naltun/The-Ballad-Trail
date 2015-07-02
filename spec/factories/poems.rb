@@ -4,9 +4,7 @@ FactoryGirl.define do
   factory :poem do
     title "A Red, Red Rose"
     description "Introduced by a variety of writers, artists and other guests, the Scottish Poetry Library’s classic poem selections are a reminder of wonderful poems to rediscover.
-
 Colin Will on 'A Red, Red Rose':
-
 This poem, especially in its song form, is very well known, but like some other good songs, there are underlying subtleties which can be missed in the malty spicy fumes of a Burns Supper."
     link "http://cookieshq.co.uk/posts/introduction-to-postgis-and-rails/"
     subtitle "O my Luve's like a red, red rose,
