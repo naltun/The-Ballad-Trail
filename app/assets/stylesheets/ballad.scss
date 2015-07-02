@@ -5,7 +5,8 @@
 	width:30%; 
 	background-color: #64FE2E; 
 	padding: 20px; 
-	text-align: right
+	text-align: right;
+	border-radius: 25px;
 }
 
 body {
@@ -80,4 +81,8 @@ nav ul ul {
 	padding:10px 0px;  
 	border-right:none; 
 	font:11px, Times New Roman; 
+}
+
+#map-canvas {
+	border-radius: 25px;
 }
