@@ -40,20 +40,51 @@
 
 	<h3> The Ballad Trail </h3>
 
-		<ul>
-		<%= link_to 'Home', home_path %>
-		<%= link_to 'Contact us', contact_path %>
-		<%= link_to 'About', about_path %>
+ <nav id="topNav">
+    <ul>
+     <li><p>Menu</p>
+
+                    <ul>  
+                        <li><%= link_to 'Home', home_path %></li>
+                        <li><%= link_to 'Contact us', contact_path %></li>
+                        <li><%= link_to 'About', about_path %></li>
+                        <% if end_user_signed_in? %>
+				  		Logged in as <strong><%= current_end_user.email %></strong>.
+				  		<li><%= link_to 'Edit profile', edit_end_user_registration_path %></li>
+				  		<li><%= link_to "Logout", destroy_end_user_session_path, method: :delete %></li>
+						<% else %>
+							<li><%= link_to 'Sign Up!', new_end_user_registration_path %></li>
+				  		<li><%= link_to "Login", new_end_user_session_path %></li>
+						<% end %>
+                    </ul>                
+               </li>
+            </ul>
+        </nav>
+
+  <!-- Script to menu -->
+	<script>
+	(function($){
+	//cache nav
+	var nav = $("#topNav");
+	//add indicators and hovers to submenu parents
+	nav.find("li").each(function() {
+	if ($(this).find("ul").length > 0) {
+	$("<span>").text("^").appendTo($(this).children(":first"));
+
+	//show subnav on hover
+	$(this).mouseenter(function() {
+	$(this).find("ul").stop(true, true).slideDown();
+	});
+	//hide submenus on exit
+	$(this).mouseleave(function() {
+	$(this).find("ul").stop(true, true).slideUp();
+	});
+	}
+	});
+	})(jQuery);
+	</script>
 		
-		<% if end_user_signed_in? %>
-  		Logged in as <strong><%= current_end_user.email %></strong>.
-  		<%= link_to 'Edit profile', edit_end_user_registration_path %>
-  		<%= link_to "Logout", destroy_end_user_session_path, method: :delete %>
-		<% else %>
-			<%= link_to 'Sign Up!', new_end_user_registration_path %>
-  		<%= link_to "Login", new_end_user_session_path %>
-		<% end %>
- 	</ul> 
+
 
 	<div id="menu_box">
 	
