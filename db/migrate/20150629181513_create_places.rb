@@ -1,7 +1,5 @@
 class CreatePlaces < ActiveRecord::Migration
 
-	has_many :poems
-	has_many :songs
 	
   def change
     create_table :places do |t|
