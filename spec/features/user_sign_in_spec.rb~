@@ -13,6 +13,6 @@ describe "end_user sign in" do
 
     click_button "Log in"
 
-    page.should have_content( "The Ballad Trail Home Contact us About Sign Up! Logged in as email@example.com. Edit profile | Logout The Ballad Trail")
+    page.should have_content( "The Ballad Trail Menu Home Contact us About Logged in as email@example.com. Edit profile Logout Signed in successfully.")
   end
 end
