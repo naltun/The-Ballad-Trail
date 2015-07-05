@@ -1,9 +1,9 @@
 require "spec_helper"
 require 'rails_helper'
 
-describe "end_user sign in" do
-  it "allows end_users to sign in after they have registered" do
-    end_user = EndUser.create(:email    => "email@example.com",
+describe "user sign in" do
+  it "allows users to sign in after they have registered" do
+    user = EndUser.create(:email    => "email@example.com",
                        :password => "password")
 
     visit "/end_users/sign_in"

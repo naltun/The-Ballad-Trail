@@ -5,9 +5,9 @@ describe "user registration" do
   it "allows new users to register with an email address and password" do
     visit "/end_users/sign_up"
 
-    fill_in "Email",                 :with => "alindeman@example.com"
-    fill_in "Password",              :with => "ilovegrapes"
-    fill_in "Password confirmation", :with => "ilovegrapes"
+    fill_in "Email",                 :with => "email@example.com"
+    fill_in "Password",              :with => "password"
+    fill_in "Password confirmation", :with => "password"
 
     click_button "Sign up"
 
