@@ -7,6 +7,8 @@ class CreatePoems < ActiveRecord::Migration
       t.text :description
       t.string :link
       t.text :subtitle
+      t.references :place, index: true
+      t.references :composer, index: true
 
       t.timestamps null: false
     end
