@@ -1,6 +1,7 @@
 <%= simple_form_for @place do |f| %>
 	<%= f.input :name, hint: 'e.g. Harlaw' %>
 	<%= f.input :latitude, hint: 'Use google maps to find the latitude of the place e.g. "57.291939"' %>
-	<%= f.input :longitude, 'Use google maps to find the longitude of the place e.g. "-2.565474"'%>
+	<%= f.input :longitude, hint: 'Use google maps to find the longitude of the place e.g. "-2.565474"'%>
 	<%= f.input :region, hint: 'e.g. Inverurie' %>
+	<%= f.button :submit %>
 <% end %>

@@ -1,8 +1,13 @@
 class PlacesController < ApplicationController
+	before_action :find_place, only: [:show, :edit, :update, :destroy]
+
+
 	def index
+		@places = Places.all.order("created_at DESC")
 	end
 
 	def show
+
 	end
 
 	def new
@@ -31,6 +36,7 @@ class PlacesController < ApplicationController
 	private
 
 	def find_place
+		@place = Place.find(params[:id])
 	end
 
 	def place_params
