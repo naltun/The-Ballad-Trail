@@ -28,9 +28,16 @@ class PlacesController < ApplicationController
 	end
 
 	def update
+		if @place.update(place_params)
+			redirect_to @place
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
+		@place.destroy
+		redirect_to root_path
 	end
 
 	private

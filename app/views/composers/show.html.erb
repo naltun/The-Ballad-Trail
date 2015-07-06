@@ -1,0 +1,6 @@
+<h3><%= @composer.fname %><%= @composer.lname %></h3>
+<p><%= @composer.fname %> is a <%= @composer.type %></p>
+<p><%= @composer.bio %></p>
+
+<%= link_to "Edit", edit_composer_path(@composer)%>
+<%= link_to "Destroy", post_path(@composer), method: :delete, data: { confirm: "Are you sure?"} %>

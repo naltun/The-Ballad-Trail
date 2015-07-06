@@ -1,6 +1,8 @@
 class ComposersController < ApplicationController
+	before_action :find_composer, only: [:show, :edit, :update, :destroy]
 
 	def index
+		@composers = Composers.all.order("fname ASC")
 	end
 
 	def show
@@ -24,14 +26,22 @@ class ComposersController < ApplicationController
 	end
 
 	def update
+		if @composer.update(composer_params)
+			redirect_to @composer
+		else
+			render 'edit'
+		end
 	end
 
 	def destroy
+		@composer.destroy
+		redirect_to root_path
 	end
 
 	private
 
 	def find_composer
+		@composer = Composer.find(params[:id])
 	end
 
 	def composer_params

@@ -1,3 +1,6 @@
 <h3><%= @place.name %></h3>
 <p>Coordinates:<%= @place.latitude %>, <%= @place.longitude %></p>
 <p><%= @place.region %></p>
+
+<%= link_to "Edit", edit_place_path(@place)%>
+<%= link_to "Destroy", post_path(@place), method: :delete, data: { confirm: "Are you sure?"} %>
