@@ -1,0 +1,9 @@
+<%= simple_form_for @song do |f| %>
+	<%= f.input :title %>
+	<%= f.input :description, hint: 'Brief description of what the song is about' %>
+	<%= f.input :link, hint: 'include link to song' %>
+	<%= f.input :lyrics %>
+	<%= f.association :place %>
+	<%= f.association :composer %>
+	<%= f.button :submit %>
+<% end %>
