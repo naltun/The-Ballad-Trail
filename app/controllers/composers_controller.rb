@@ -2,7 +2,7 @@ class ComposersController < ApplicationController
 	before_action :find_composer, only: [:show, :edit, :update, :destroy]
 
 	def index
-		@composers = Composers.all.order("fname ASC")
+		@composers = Composer.all.order("fname ASC")
 	end
 
 	def show

@@ -1,2 +1,5 @@
 <h1>Composers Page</h1>
-<p>This is a placeholder</p>
+
+<% @composers.each do |composer| %>
+	<h3><%= link_to composer.fname composer.lname, composer %></h3>
+	<% end %>
