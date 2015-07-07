@@ -1,8 +1,8 @@
-<%= simple_form_for @song do |f| %>
+<%= simple_form_for @poem do |f| %>
 	<%= f.input :title %>
-	<%= f.input :description, hint: 'Brief description of what the song is about' %>
+	<%= f.input :description, hint: 'Brief description of what the poem is about' %>
 	<%= f.input :link, hint: 'include link to media file' %>
-	<%= f.input :lyrics %>
+	<%= f.input :subtitle %>
 	<%= f.association :place %>
 	<%= f.association :composer %>
 	<%= f.button :submit %>
