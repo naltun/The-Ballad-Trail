@@ -1,5 +1,6 @@
 class PoemsController < ApplicationController
 	before_action :find_poem, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_end_user!, except: [:index, :show]
 
 	def index
 		@poems = Poem.all.order("created_at DESC")
@@ -9,11 +10,11 @@ class PoemsController < ApplicationController
 	end
 
 	def new
-		@poem = Poem.new
+		@poem = current_end_user.poems.build
 	end
 
 	def create
-		@poem = Poem.new(poem_params)
+		@poem = current_end_user.poems.build(poem_params)
 
 		if @poem.save
 			redirect_to @poem

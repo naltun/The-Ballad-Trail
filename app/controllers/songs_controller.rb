@@ -1,5 +1,6 @@
 class SongsController < ApplicationController
 	before_action :find_song, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_end_user!, except: [:index, :show]
 	
 	def index
 		@songs = Song.all.order("created_at DESC")
@@ -9,11 +10,11 @@ class SongsController < ApplicationController
 	end
 
 	def new
-		@song = Song.new
+		@song = current_end_user.songs.build
 	end
 
 	def create
-		@song = Song.new(song_params)
+		@song = current_end_user.songs.build(song_params)
 
 		if @song.save
 			redirect_to @song
