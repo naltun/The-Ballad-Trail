@@ -10,12 +10,12 @@ Rails.application.routes.draw do
 	get '/index', to: 'places#index'
 	get '/index', to: 'composers#index'
 	
-	get '/home', to: 'ballad#home'
-	get '/about', to: 'ballad#about'
-	get '/contact', to: 'ballad#contact'
-	get '/signup', to: 'ballad#signup'
+	get '/home', to: 'application#home'
+	get '/about', to: 'application#about'
+	get '/contact', to: 'application#contact'
+	get '/signup', to: 'application#signup'
 
-	root to: 'ballad#home'
+	root to: 'application#home'
 
 	
 	

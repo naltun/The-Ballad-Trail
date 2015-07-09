@@ -1,2 +1,5 @@
 <h1>Poems Page</h1>
-<p>This is a placeholder</p>
+
+<p><% @poems.each do |poem| %></p>
+	<h3><%= link_to poem.title, poem %></h3>
+	<% end %>

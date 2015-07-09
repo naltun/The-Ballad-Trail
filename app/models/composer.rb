@@ -1,4 +1,6 @@
 class Composer < ActiveRecord::Base
+
+	belongs_to :end_user
 	
 	has_many :songs
 	has_many :poems

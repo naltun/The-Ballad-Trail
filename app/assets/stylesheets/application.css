@@ -1,15 +1,88 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+
+#menu_box {
+	float: left; 
+	height: 100%; 
+	width:30%; 
+	background-color: #64FE2E; 
+	padding: 20px; 
+	text-align: left;
+	border-radius: 25px;
+}
+
+body {
+	font-family: "Times New Roman";
+}
+
+
+li { 
+	width: 150px;
+}
+
+nav { 
+	display:block; 
+	position:relative; 
+	background-color:white; 
+	font:12px, Times New Roman; 
+	text-align:right;
+}
+
+nav ul { 
+	padding:0; 
+	margin:0; 
+}
+
+nav li { 
+	position:relative; 
+	float:left; 
+	list-style-type:none; 
+}
+
+nav ul:after { 
+	content:"."; 
+	display:block; 
+	height:0; 
+	clear:both; 
+	visibility:hidden; 
+}
+
+
+nav li a{ 
+	display:block; 
+	text-decoration:none; 
+	text-colour: black;
+}
+
+nav li a:focus { 
+	outline:none; 
+	text-decoration:underline; 
+}
+
+nav a span { 
+	display:block;
+	width:100%; 
+	float:left; 
+}
+
+nav ul ul { 
+	display:none; 
+	width:100%; 
+	position:absolute; 
+	left:0; 
+	background:white; 
+	border: 1px solid #CC9900 
+}
+
+nav ul ul a:hover { 
+	background-color:#F5F5CC; 
+	width:100%; 
+}
+
+nav ul ul a {
+	padding:10px 0px;  
+	border-right:none; 
+	font:11px, Times New Roman; 
+}
+
+#map-canvas {
+	border-radius: 25px;
+}

@@ -1,7 +1,7 @@
 <%= simple_form_for @composer do |f| %>
-	<%= f.input :fname, label: 'Your firstname'%>
-	<%= f.input :lname, label: 'Your lastname'%>
+	<%= f.input :fname, label: 'First name'%>
+	<%= f.input :lname, label: 'Last name'%>
 	<%= f.input :type, collection: ["Singer", "Poet"], as: :radio_buttons %>
-	<%= f.input :longitude, 'Use google maps to find the longitude of the place e.g. "-2.565474"'%>
-	<%= f.input :region, hint: 'e.g. Inverurie' %>
+	<%= f.input :bio, hint: 'Brief Composer bio. You can also include links to external sources'%>
+	<%= f.button :submit %>
 <% end %>
