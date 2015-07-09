@@ -38,10 +38,12 @@
 
 <body>
 
-	<h3> The Ballad Trail </h3>
+<h2> The Ballad Trail </h2>	
+
+<div id="wrap">
  <nav id="topNav">
     <ul>
-     <li><p>Menu</p>
+     <li><p> MENU </p>
 
                     <ul>  
                         <li><%= link_to 'Home', home_path %></li>
@@ -82,15 +84,15 @@
 	})(jQuery);
 	</script>
 
-<%= link_to 'All Places', places_path %>
-<%= link_to 'All Composers', composers_path %>
-<%= link_to 'All Poems', poems_path %>
-<%= link_to 'All Songs', songs_path %>
+	<%= link_to 'All Places', places_path %> 
+	<%= link_to 'All Composers', composers_path %> 
+	<%= link_to 'All Poems', poems_path %> 
+	<%= link_to 'All Songs', songs_path %> 
+
+</div>
 
 	<!-- Adds the green box -->
-	<div id="menu_box">
-			<%= yield %>
-	</div>
+	<div id="menu_box">	<%= yield %> </div>
 	
 
 
