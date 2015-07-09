@@ -1,5 +1,6 @@
 class ComposersController < ApplicationController
 	before_action :find_composer, only: [:show, :edit, :update, :destroy]
+	before_action :authenticate_end_user!, except: [:index, :show]
 
 	def index
 		@composers = Composer.all.order("fname ASC")
@@ -9,11 +10,11 @@ class ComposersController < ApplicationController
 	end
 
 	def new
-		@composer = Composer.new
+		@composer = current_end_user.composers.build
 	end
 
 	def create
-		@composer = Composer.new(composer_params)
+		@composer = current_end_user.composers.build(composer_params)
 
 		if @composer.save
 			redirect_to @composer

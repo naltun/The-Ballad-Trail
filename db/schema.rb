@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150701213646) do
+ActiveRecord::Schema.define(version: 20150708205208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20150701213646) do
     t.string   "lname"
     t.string   "type"
     t.text     "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "end_user_id"
   end
 
   create_table "end_users", force: :cascade do |t|
@@ -48,8 +49,9 @@ ActiveRecord::Schema.define(version: 20150701213646) do
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "region"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "end_user_id"
   end
 
   create_table "poems", force: :cascade do |t|
@@ -59,6 +61,7 @@ ActiveRecord::Schema.define(version: 20150701213646) do
     t.text     "subtitle"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "end_user_id"
   end
 
   create_table "songs", force: :cascade do |t|
@@ -68,6 +71,7 @@ ActiveRecord::Schema.define(version: 20150701213646) do
     t.text     "lyrics"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "end_user_id"
   end
 
 end

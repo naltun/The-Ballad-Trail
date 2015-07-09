@@ -1,0 +1,10 @@
+<h3><%= @poem.title %></h3>
+<p><%= @poem.place %></p>
+<p><%= @poem.description %></p>
+<p><%= @poem.composer %></p>
+<p><%= @poem.link %></p>
+<p><%= @poem.subtitle %></p>
+
+
+<%= link_to "Edit", edit_poem_path(@poem)%>
+<%= link_to "Destroy", poem_path(@poem), method: :delete, data: { confirm: "Are you sure?"} %>

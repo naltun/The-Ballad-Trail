@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 	before_action :find_place, only: [:show, :edit, :update, :destroy]
-
+	before_action :authenticate_end_user!, except: [:index, :show]
 
 	def index
 		@places = Place.all.order("created_at DESC")
@@ -11,11 +11,11 @@ class PlacesController < ApplicationController
 	end
 
 	def new
-		@place = Place.new
+		@place = current_end_user.places.build
 	end
 
 	def create
-		@place = Place.new(place_params)
+		@place = current_end_user.places.build(place_params)
 
 		if @place.save
 			redirect_to @place
