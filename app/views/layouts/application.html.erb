@@ -1,19 +1,107 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+	<meta charset="utf-8">
+
   <title>TheBalladTrail</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
 
+
+  <!-- Add styles to map -->
+  <style type="text/css">
+  	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+	</style>
+	
+	<!-- Connects to Google Javascript API -->
+	<script type="text/javascript"
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz0j_R1FllX2cnZ_lJIsgZJtMitbI6vOY">
+	</script>
+	
+	<!-- Initializes map and creates map object -->
+	<script type="text/javascript">
+	  function initialize() {
+	    var mapOptions = {
+	      center: { lat: 57.331380, lng: -2.320982},
+	      zoom: 10
+	    };
+	    var map = new google.maps.Map(document.getElementById('map-canvas'),
+	        mapOptions);
+	  }
+	  google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
+
+</head>
 
 <body>
 
+	<h3> The Ballad Trail </h3>
+
+ <nav id="topNav">
+    <ul>
+     <li><p>Menu</p>
+
+                    <ul>  
+                        <li><%= link_to 'Home', home_path %></li>
+                        <li><%= link_to 'Contact us', contact_path %></li>
+                        <li><%= link_to 'About', about_path %></li>
+                        <% if end_user_signed_in? %>
+				  		Logged in as <strong><%= current_end_user.email %></strong>.
+				  		<li><%= link_to 'Edit profile', edit_end_user_registration_path %></li>
+				  		<li><%= link_to "Logout", destroy_end_user_session_path, method: :delete %></li>
+						<% else %>
+							<li><%= link_to 'Sign Up!', new_end_user_registration_path %></li>
+				  		<li><%= link_to "Login", new_end_user_session_path %></li>
+						<% end %>
+                    </ul>                
+               </li>
+            </ul>
+        </nav>
+
+  <!-- Script to menu -->
+	<script>
+	(function($){
+	//cache nav
+	var nav = $("#topNav");
+	//add indicators and hovers to submenu parents
+	nav.find("li").each(function() {
+	if ($(this).find("ul").length > 0) {
+	$("<span>").text("^").appendTo($(this).children(":first"));
+
+	//show subnav on hover
+	$(this).mouseenter(function() {
+	$(this).find("ul").stop(true, true).slideDown();
+	});
+	//hide submenus on exit
+	$(this).mouseleave(function() {
+	$(this).find("ul").stop(true, true).slideUp();
+	});
+	}
+	});
+	})(jQuery);
+	</script>
+		
 
 
+	<div id="menu_box">
+			<%= yield %>
+	</div>
+	
+	<% if notice %>
+  	<p class="alert alert-success"><%= notice %></p>
+	<% end %>
+	<% if alert %>
+  	<p class="alert alert-danger"><%= alert %></p>
+	<% end %>
+	
+	
 
-<%= yield %>
+
+	<!-- Adds map to screen -->
+	<div id="map-canvas"></div>
 
 </body>
 </html>
