@@ -13,7 +13,6 @@ body {
 	font-family: "Times New Roman";
 }
 
-
 li { 
 	width: 150px;
 }
@@ -85,4 +84,5 @@ nav ul ul a {
 
 #map-canvas {
 	border-radius: 25px;
+
 }

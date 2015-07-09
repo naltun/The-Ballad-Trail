@@ -39,7 +39,6 @@
 <body>
 
 	<h3> The Ballad Trail </h3>
-
  <nav id="topNav">
     <ul>
      <li><p>Menu</p>
@@ -60,7 +59,6 @@
                </li>
             </ul>
         </nav>
-
   <!-- Script to menu -->
 	<script>
 	(function($){
@@ -83,13 +81,19 @@
 	});
 	})(jQuery);
 	</script>
-		
 
+<%= link_to 'All Places', places_path %>
+<%= link_to 'All Composers', composers_path %>
+<%= link_to 'All Poems', poems_path %>
+<%= link_to 'All Songs', songs_path %>
 
+	<!-- Adds the green box -->
 	<div id="menu_box">
 			<%= yield %>
 	</div>
 	
+
+
 	<% if notice %>
   	<p class="alert alert-success"><%= notice %></p>
 	<% end %>
@@ -97,11 +101,10 @@
   	<p class="alert alert-danger"><%= alert %></p>
 	<% end %>
 	
-	
+
 
 
 	<!-- Adds map to screen -->
 	<div id="map-canvas"></div>
-
 </body>
 </html>
