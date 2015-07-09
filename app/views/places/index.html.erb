@@ -1,5 +1,7 @@
-<h1>PLACES... </h1>
+<h1>PLACES </h1>
 
-<% @places.each do |place| %>
+<p><% @places.each do |place| %></p>
 	<h3><%= link_to place.name, place %></h3>
 	<% end %>
+
+<p><%= link_to 'Fancy adding a Ballad?', new_place_path %></p>

@@ -1,5 +1,7 @@
 class Place < ActiveRecord::Base
 
+	belongs_to :end_user
+
 	has_many :poems
 	has_many :songs
 	
