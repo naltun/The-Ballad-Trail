@@ -59,29 +59,37 @@ ActiveRecord::Schema.define(version: 20150708205208) do
     t.text     "description"
     t.string   "link"
     t.text     "subtitle"
-    t.integer  "place_id"
-    t.integer  "composer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "end_user_id"
   end
-
-  add_index "poems", ["composer_id"], name: "index_poems_on_composer_id", using: :btree
-  add_index "poems", ["place_id"], name: "index_poems_on_place_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "link"
     t.text     "lyrics"
-    t.integer  "place_id"
-    t.integer  "composer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "end_user_id"
   end
 
-  add_index "songs", ["composer_id"], name: "index_songs_on_composer_id", using: :btree
-  add_index "songs", ["place_id"], name: "index_songs_on_place_id", using: :btree
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
