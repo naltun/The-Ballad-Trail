@@ -13,6 +13,9 @@ body {
 	font-family: "Times New Roman";
 }
 
+#wrap {
+	height: 40px;
+}
 
 li { 
 	width: 150px;
@@ -20,7 +23,10 @@ li {
 
 nav { 
 	display:block; 
-	position:relative; 
+	position:absolute;
+	z-index: 1000;	
+	right: 3px; 
+	top: 55px;
 	background-color:white; 
 	font:12px, Times New Roman; 
 	text-align:right;
@@ -85,4 +91,5 @@ nav ul ul a {
 
 #map-canvas {
 	border-radius: 25px;
+
 }
