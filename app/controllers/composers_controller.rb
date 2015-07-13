@@ -3,7 +3,7 @@ class ComposersController < ApplicationController
 	before_action :authenticate_end_user!, except: [:index, :show]
 
 	def index
-		@composers = Composer.all.order("fname ASC")
+		@composers = Composer.all.order("created_at DESC")
 	end
 
 	def show

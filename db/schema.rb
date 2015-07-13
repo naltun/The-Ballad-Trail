@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710115547) do
+ActiveRecord::Schema.define(version: 20150708205208) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,11 @@ ActiveRecord::Schema.define(version: 20150710115547) do
   create_table "composers", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
-    t.string   "composer_type"
+    t.string   "type"
     t.text     "bio"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "end_user_id"
   end
 
   create_table "end_users", force: :cascade do |t|
@@ -58,19 +59,29 @@ ActiveRecord::Schema.define(version: 20150710115547) do
     t.text     "description"
     t.string   "link"
     t.text     "subtitle"
+    t.integer  "place_id"
+    t.integer  "composer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "end_user_id"
   end
+
+  add_index "poems", ["composer_id"], name: "index_poems_on_composer_id", using: :btree
+  add_index "poems", ["place_id"], name: "index_poems_on_place_id", using: :btree
 
   create_table "songs", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
     t.string   "link"
     t.text     "lyrics"
+    t.integer  "place_id"
+    t.integer  "composer_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "end_user_id"
   end
+
+  add_index "songs", ["composer_id"], name: "index_songs_on_composer_id", using: :btree
+  add_index "songs", ["place_id"], name: "index_songs_on_place_id", using: :btree
 
 end

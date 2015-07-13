@@ -18,7 +18,7 @@ class PlacesController < ApplicationController
 		@place = current_end_user.places.build(place_params)
 
 		if @place.save
-			redirect_to @place
+			redirect_to new_song_path
 		else
 			render 'new'
 		end
