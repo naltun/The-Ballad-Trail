@@ -1,5 +1,4 @@
 class Composer < ActiveRecord::Base
-self.inheritance_column = :_type_disabled
 
 	belongs_to :end_user
 	
