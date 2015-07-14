@@ -1,5 +1,5 @@
 <h1>Composers Page</h1>
 
 <% @composers.each do |composer| %>
-	<h3><%= link_to composer.fname composer.lname, composer %></h3>
+	<h3><%= link_to composer.fname, composer %></h3>
 	<% end %>
