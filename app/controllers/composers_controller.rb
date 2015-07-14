@@ -15,9 +15,15 @@ class ComposersController < ApplicationController
 
 	def create
 		@composer = current_end_user.composers.build(composer_params)
+		@last_composer = Composer.last
 
 		if @composer.save
-			redirect_to @composer
+
+			if @last_composer.composer_type == 'Poet'
+				redirect_to new_poem_path	
+			else
+				redirect_to new_song_path
+			end
 		else
 			render 'new'
 		end
