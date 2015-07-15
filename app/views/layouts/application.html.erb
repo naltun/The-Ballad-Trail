@@ -49,7 +49,7 @@
                         <li><%= link_to 'Home', home_path %></li>
                         <li><%= link_to 'Contact us', contact_path %></li>
                         <li><%= link_to 'About', about_path %></li>
-                        <li><%= link_to 'Admin Login', new_admin_session_path %></li>
+                        
                         <% if end_user_signed_in? %>
 				  		Logged in as <strong><%= current_end_user.email %></strong>.
 				  		<li><%= link_to 'Edit profile', edit_end_user_registration_path %></li>
@@ -57,13 +57,12 @@
 				  		
 				  			
 						<% elsif admin_signed_in? %>
+						Logged in as <strong>the Administrator</strong>
 						
 					<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
-							<li><%= link_to 'Sign Up!', new_end_user_registration_path %></li>
-				  		<li><%= link_to "Login", new_end_user_session_path %></li>
-						
 						
 						<% else %>
+						<li><%= link_to 'Admin Controls', new_admin_session_path %></li>
 						<li><%= link_to 'Sign Up!', new_end_user_registration_path %></li>
 				  		<li><%= link_to "Login", new_end_user_session_path %></li>
 						
