@@ -12,6 +12,9 @@ gem 'simple_form', '~> 3.1.0'
 gem 'rspec-rails', '~> 3.1.0'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'devise'
+gem 'aws-sdk', '~> 2.1.7'
+gem 'paperclip', '~> 4.3.0'
+gem 's3_direct_upload', '~> 0.1.7'
 
 group :development, :test do
   #gem 'sqlite3',     '1.3.9'
