@@ -19,14 +19,4 @@ Admin.create!(
              password_confirmation: "password")
         
 
-99.times do |n|
-  
-  email = "example-#{n+1}@gmail.com"
-  password = "password"
-  Admin.create!(
-               email: email,
-               password:              password,
-               password_confirmation: password)
-end
-
 
