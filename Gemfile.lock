@@ -131,6 +131,7 @@ GEM
       mime-types
       mimemagic (= 0.3.0)
     pg (0.17.1)
+    puma (2.12.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -153,7 +154,7 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
-    rails_12factor (0.0.2)
+    rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.4)
@@ -253,8 +254,9 @@ DEPENDENCIES
   launchy (~> 2.4.2)
   paperclip (~> 4.3.0)
   pg (= 0.17.1)
+  puma (~> 2.12.0)
   rails (= 4.2.0)
-  rails_12factor (= 0.0.2)
+  rails_12factor (= 0.0.3)
   rspec-rails (~> 3.1.0)
   s3_direct_upload (~> 0.1.7)
   sass-rails (= 5.0.2)
