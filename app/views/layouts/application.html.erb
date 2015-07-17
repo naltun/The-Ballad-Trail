@@ -33,16 +33,29 @@
 	  }
 	  google.maps.event.addDomListener(window, 'load', initialize);
 
-  
 
 	</script>
 
 </head>
 
 <body>
+<script type='text/javascript'>
 
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
 
-
+</script>
 <div class="wrapper">
 <div id="topLine"></div>
 
