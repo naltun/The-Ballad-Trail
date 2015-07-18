@@ -13,16 +13,21 @@ gem 'rspec-rails', '~> 3.1.0'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'devise'
 
+
+
+
+
 group :development, :test do
   #gem 'sqlite3',     '1.3.9'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
+  gem 'faker', '~> 1.4.3'
 end
 
 group :test do
-	gem 'faker', '~> 1.4.3'
+	
 	gem 'capybara', '~> 2.4.3'
 	gem 'database_cleaner', '~> 1.3.0'
 	gem 'launchy', '~> 2.4.2'

@@ -13,18 +13,20 @@ places = Place.create([
 	{ name: 'Bennachie', latitude: 57.291939, longitude: -2.565474, region: 'Inverurie' }, 
 	{ name: 'Harlaw', latitude: 57.307924, longitude: -2.413533, region: 'Inverurie' },
 	])
+	
+if Admin.count == 0
+puts "Creating admin user"
 Admin.create!(
              email: "mnikole9@gmail.com",
              password:              "password",
              password_confirmation: "password")
+end
         
 
-99.times do |n|
-  
-  email = "example-#{n+1}@gmail.com"
-  password = "password"
-  Admin.create!(
-               email: email,
+10.times do |n|
+  email = Faker::Internet.free_email
+  password = "theballad"
+  EndUser.create!(email: email,
                password:              password,
                password_confirmation: password)
 end
