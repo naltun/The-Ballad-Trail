@@ -59,6 +59,7 @@
 						<% elsif admin_signed_in? %>
 						Logged in as <strong>the Administrator</strong>
 						
+						
 					<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
 						
 						<% else %>
@@ -100,6 +101,9 @@
 	<%= link_to 'All Composers', composers_path %> 
 	<%= link_to 'All Poems', poems_path %> 
 	<%= link_to 'All Songs', songs_path %> 
+	<% if admin_signed_in? %>
+	<%= link_to 'All Users', end_users_path %>
+	<% end %>
 
 </div>
 
