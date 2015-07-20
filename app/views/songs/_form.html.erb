@@ -1,9 +1,10 @@
 <%= simple_form_for @song do |f| %>
-	<%= f.association :composer %>
+	
 	<%= f.input :title %>
 	<%= f.input :description, hint: 'Brief description of what the song is about' %>
 	<%= f.input :link, hint: 'include link to media file' %>
 	<%= f.input :lyrics %>
 	<%= f.association :place %>
+	<%= f.association :composer %>
 	<%= f.button :submit %>
 <% end %>
