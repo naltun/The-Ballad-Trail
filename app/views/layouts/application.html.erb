@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<meta charset="utf-8">
+  <meta charset="utf-8">
 
   <title>TheBalladTrail</title>
 
@@ -32,11 +32,46 @@
 	        mapOptions);
 	  }
 	  google.maps.event.addDomListener(window, 'load', initialize);
+
+
 	</script>
 
 </head>
 
 <body>
+<script type='text/javascript'>
+
+(function()
+{
+  if( window.localStorage )
+  {
+    if( !localStorage.getItem( 'firstLoad' ) )
+    {
+      localStorage[ 'firstLoad' ] = true;
+      window.location.reload();
+    }  
+    else
+      localStorage.removeItem( 'firstLoad' );
+  }
+})();
+
+</script>
+<div class="wrapper">
+<div id="topLine"></div>
+
+<div class="header">
+
+	<%= link_to image_tag("logo.png", :style => 'margin-left: 30px; margin-top: 5px;') %>
+
+
+
+
+
+	<%= link_to 'HOME', home_path %>
+
+	<!-- <nav class="topNav">
+	    <ul>
+	     <li><p> MENU </p>
 
 <h2> The Ballad Trail </h2>	
 
@@ -59,6 +94,7 @@
 						<% elsif admin_signed_in? %>
 						Logged in as <strong>the Administrator</strong>
 						
+						
 					<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
 						
 						<% else %>
@@ -72,40 +108,89 @@
                     </ul>                
                </li>
             </ul>
-        </nav>
+        </nav> -->
   <!-- Script to menu -->
-	<script>
-	(function($){
-	//cache nav
-	var nav = $("#topNav");
-	//add indicators and hovers to submenu parents
-	nav.find("li").each(function() {
-	if ($(this).find("ul").length > 0) {
-	$("<span>").text("^").appendTo($(this).children(":first"));
+			<nav class="topNav">
+	                    <ul>  
+	                    <li><p> MENU </p>
+	                        <li><%= link_to image_tag("contact.png", :style => 'margin-right: 150px;') + 'Contact us', contact_path %></li>
+	                        <li><%= link_to image_tag("about.png", :style => 'margin-right: 150px;') + 'About', about_path %></li>
+	                        <% if end_user_signed_in? %>
+					  		Logged in as <strong><%= current_end_user.email %></strong>.
+					  		<li><%= link_to 'Edit profile', edit_end_user_registration_path %></li>
+					  		<li><%= link_to "Logout", destroy_end_user_session_path, method: :delete %></li>
+					  		
+					  		<% elsif admin_signed_in? %>
+						Logged in as <strong>the Administrator</strong>
+							<% else %>
+							<li><%= link_to 'Admin Controls', new_admin_session_path %></li>
+								<li><%= link_to image_tag("signup.png", :style => 'margin-right: 150px;') + 'Sign Up!', new_end_user_registration_path %></li>
+					  		<li><%= link_to image_tag("login.png", :style => 'margin-right: 158px;') + "Login", new_end_user_session_path %></li>
+							<% end %>
+	                    </ul>                
+	               </li>
+	            </ul>
+	        </nav>
 
-	//show subnav on hover
-	$(this).mouseenter(function() {
-	$(this).find("ul").stop(true, true).slideDown();
-	});
-	//hide submenus on exit
-	$(this).mouseleave(function() {
-	$(this).find("ul").stop(true, true).slideUp();
-	});
-	}
-	});
-	})(jQuery);
+	  <!-- Script to menu -->
+
+	<script>
+		(function($){
+		//cache nav
+		var nav = $(".topNav");
+		//add indicators and hovers to submenu parents
+		nav.find("li").each(function() {
+		if ($(this).find("ul").length > 0) {
+		$("<span>").text(" ").appendTo($(this).children(":first"));
+
+		//show subnav on hover
+		$(this).mouseenter(function() {
+		$(this).find("ul").stop(true, true).slideDown();
+		});
+		//hide submenus on exit
+		$(this).mouseleave(function() {
+		$(this).find("ul").stop(true, true).slideUp();
+		});
+		}
+		});
+		})(jQuery);
 	</script>
 
 	<%= link_to 'All Places', places_path %> 
 	<%= link_to 'All Composers', composers_path %> 
 	<%= link_to 'All Poems', poems_path %> 
 	<%= link_to 'All Songs', songs_path %> 
+	<% if admin_signed_in? %>
+	<%= link_to 'All Users', end_users_path %>
+	<% end %>
 
+
+
+	
 </div>
 
+   <!-- <div id="links">
+    
+
+       <%= link_to 'All Places', places_path %> 
+       <%= link_to 'All Composers', composers_path %> 
+       <%= link_to 'All Poems', poems_path %> 
+       <%= link_to 'All Songs', songs_path %> 
+    
+</div> -->
+
+   
+
+
+
+<div class="body">
 	<!-- Adds the green box -->
-	<div id="menu_box">	<%= yield %> </div>
-	
+	<div class="menu_box_background">	
+	</div>
+
+		<div class="menu_box">	
+			<%= yield %> 
+		</div>
 
 
 	<% if notice %>
@@ -120,5 +205,7 @@
 
 	<!-- Adds map to screen -->
 	<div id="map-canvas"></div>
+</div>
+</div>
 </body>
 </html>

@@ -1,35 +1,92 @@
 
-#menu_box {
+html, body {
+    margin: 0;
+}
+
+.menu_box_background {
 	float: left; 
 	height: 100%; 
-	width:30%; 
-	background-color: #64FE2E; 
+	width:33%; 
+	background-color: #99cc66; 
 	padding: 20px; 
 	text-align: left;
-	border-radius: 25px;
+	z-index: 1000;
+	position: absolute;
+	opacity: 0.7;	
+	overflow: hidden;
+	border-radius: 5px;
 }
 
-body {
+.menu_box {
+	float: left; 
+	height: 100%; 
+	width:33%; 
+	padding: 20px; 
+	text-align: left;
+	z-index: 1000;
+	position: absolute;
+	overflow: hidden;
+	border-radius: 5px;
+}
+
+
+.body {
+	overflow: hidden;
 	font-family: "Times New Roman";
+	height: 100%;
+	position: relative;
+
 }
 
-#wrap {
-	height: 40px;
+.wrapper {
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+}
+
+.header {
+	height: auto;
+	overflow: hidden;
+}
+
+#topLine {
+	height: 10px;
+	background-color: #99cc66; 	
+}
+
+#links {
+	position: relative;
+	min-height: auto;
+	background-color: #99cc66; 
+}
+
+#search {
+	margin-left: 100px;
+	text-decoration:none; 
 }
 
 li { 
-	width: 150px;
+	width: 260px;
+
 }
 
+
+
 nav { 
-	display:block; 
+	z-index: 1001;
+    width: 50px;
+    height: 12px;
+    top: 75px;
+    padding: 2px ;  
 	position:absolute;
-	z-index: 1000;	
-	right: 3px; 
-	top: 55px;
+	right: 213px;
 	background-color:white; 
 	font:12px, Times New Roman; 
-	text-align:right;
+	text-align:left;
 }
 
 nav ul { 
@@ -55,7 +112,7 @@ nav ul:after {
 nav li a{ 
 	display:block; 
 	text-decoration:none; 
-	text-colour: black;
+	color: black;
 }
 
 nav li a:focus { 
@@ -91,5 +148,17 @@ nav ul ul a {
 
 #map-canvas {
 	border-radius: 25px;
-
 }
+
+
+
+
+
+
+
+
+
+<<<<<<< HEAD
+}
+=======
+>>>>>>> 3023f9bd731189317f90720215a77d672df3c8ff
