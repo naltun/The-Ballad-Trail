@@ -69,7 +69,7 @@
 
 	<%= link_to 'HOME', home_path %>
 
-	 <nav class="topNav">
+	<!-- <nav class="topNav">
 	    <ul>
 	     <li><p> MENU </p>
 
@@ -108,17 +108,22 @@
                     </ul>                
                </li>
             </ul>
-        </nav>
+        </nav> -->
   <!-- Script to menu -->
-
+			<nav class="topNav">
 	                    <ul>  
+	                    <li><p> MENU </p>
 	                        <li><%= link_to image_tag("contact.png", :style => 'margin-right: 150px;') + 'Contact us', contact_path %></li>
 	                        <li><%= link_to image_tag("about.png", :style => 'margin-right: 150px;') + 'About', about_path %></li>
 	                        <% if end_user_signed_in? %>
 					  		Logged in as <strong><%= current_end_user.email %></strong>.
 					  		<li><%= link_to 'Edit profile', edit_end_user_registration_path %></li>
 					  		<li><%= link_to "Logout", destroy_end_user_session_path, method: :delete %></li>
+					  		
+					  		<% elsif admin_signed_in? %>
+						Logged in as <strong>the Administrator</strong>
 							<% else %>
+							<li><%= link_to 'Admin Controls', new_admin_session_path %></li>
 								<li><%= link_to image_tag("signup.png", :style => 'margin-right: 150px;') + 'Sign Up!', new_end_user_registration_path %></li>
 					  		<li><%= link_to image_tag("login.png", :style => 'margin-right: 158px;') + "Login", new_end_user_session_path %></li>
 							<% end %>
@@ -164,14 +169,15 @@
 	
 </div>
 
-    <div id="links">
+   <!-- <div id="links">
+    
 
        <%= link_to 'All Places', places_path %> 
        <%= link_to 'All Composers', composers_path %> 
        <%= link_to 'All Poems', poems_path %> 
        <%= link_to 'All Songs', songs_path %> 
     
-</div>
+</div> -->
 
    
 
