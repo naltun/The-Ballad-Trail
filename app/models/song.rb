@@ -6,4 +6,8 @@ class Song < ActiveRecord::Base
 
 	validates :title, presence: true
 	validates :link, presence: true
+
+	has_attached_file :link
+	validates_attachment_presence :link
+	validates_attachment_content_type :link, :content_type => [ 'audio/mp3','audio/mpeg']
 end
