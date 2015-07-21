@@ -5,7 +5,6 @@ class CreateSongs < ActiveRecord::Migration
     create_table :songs do |t|
       t.string :title
       t.text :description
-      t.has_attached_file :link
       t.text :lyrics
       t.references :place, index: true
       t.references :composer, index: true 

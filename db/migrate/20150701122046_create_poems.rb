@@ -5,7 +5,6 @@ class CreatePoems < ActiveRecord::Migration
     create_table :poems do |t|
       t.string :title
       t.text :description
-      t.string :link
       t.text :subtitle
       t.references :place, index: true
       t.references :composer, index: true
