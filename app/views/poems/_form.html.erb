@@ -1,7 +1,7 @@
 <%= simple_form_for @poem do |f| %>
 	<%= f.input :title %>
 	<%= f.input :description, hint: 'Brief description of what the poem is about' %>
-	<%= f.input :link, hint: 'include link to media file' %>
+	<%= f.input :medialink, as: :file, hint: 'upload Media files here' %>
 	<%= f.input :subtitle %>
 	<%= f.association :place %>
 	<%= f.association :composer %>
