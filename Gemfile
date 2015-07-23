@@ -14,7 +14,7 @@ gem 'rspec-rails', '~> 3.1.0'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'devise'
 gem 'aws-sdk', '~> 2.1.7'
-gem 'paperclip', '~> 4.3.0'
+gem 'paperclip', '~> 4.2.2'
 gem 's3_direct_upload', '~> 0.1.7'
 
 
@@ -27,7 +27,7 @@ group :development, :test do
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
-  gem 'faker', '~> 1.4.3'
+  #gem 'faker', '~> 1.4.3'
 end
 
 group :test do
