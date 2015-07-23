@@ -1,4 +1,4 @@
-<%= simple_form_for @poem do |f| %>
+<%= simple_form_for @poem, html: {multipart: true} do |f| %>
 	<%= f.input :title %>
 	<%= f.input :description, hint: 'Brief description of what the poem is about' %>
 	<%= f.input :medialink, as: :file, hint: 'upload Media files here' %>
