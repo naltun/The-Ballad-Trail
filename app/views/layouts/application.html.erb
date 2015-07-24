@@ -122,6 +122,7 @@
 					  		
 					  		<% elsif admin_signed_in? %>
 						Logged in as <strong>the Administrator</strong>
+						<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
 							<% else %>
 							<li><%= link_to 'Admin Controls', new_admin_session_path %></li>
 								<li><%= link_to image_tag("signup.png", :style => 'margin-right: 150px;') + 'Sign Up!', new_end_user_registration_path %></li>

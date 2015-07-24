@@ -22,13 +22,13 @@ Admin.create!(
              password_confirmation: "password")
 end
       
-#10.times do |n|
-  #email = Faker::Internet.free_email
-  #password = "theballad"
-  #EndUser.create!(email: email,
-   #            password:              password,
-    #           password_confirmation: password)
-#end
+10.times do
+  email = Faker::Internet.free_email
+  password = "theballad"
+  EndUser.create!(email: email,
+             password:              password,
+               password_confirmation: password)
+end
 
 
 
