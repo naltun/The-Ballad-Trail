@@ -5,7 +5,7 @@ class Song < ActiveRecord::Base
 	belongs_to :composer
 
 	has_attached_file :medialink
-	validates_attachment_content_type :medialink, :content_type => [ 'audio/mp3','audio/mpeg','video/mp4']
+	validates_attachment_content_type :medialink, content_type: /\Aaudio/
 
 	validates :title, presence: true
 	validates :lyrics, presence: true
