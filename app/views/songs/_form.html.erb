@@ -1,4 +1,4 @@
-<%= simple_form_for @song do |f| %>
+<%= simple_form_for @song, html: {multipart: true} do |f| %>
 	<%= f.association :composer %>
 	<%= f.input :title %>
 	<%= f.input :description, hint: 'Brief description of what the song is about' %>

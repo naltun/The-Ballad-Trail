@@ -58,7 +58,7 @@ $(document).ready(function(){
     if( !localStorage.getItem( 'firstLoad' ) )
     {
       localStorage[ 'firstLoad' ] = true;
-      window.location.reload();
+      window.location=window.location;
     }  
     else
       localStorage.removeItem( 'firstLoad' );
@@ -95,7 +95,10 @@ $(document).ready(function(){
 					  		<li><%= link_to image_tag("edit.png", :style => 'margin-right: 150px;') + 'Logout', destroy_end_user_session_path, method: :delete %></li>
 					  		
 					  		<% elsif admin_signed_in? %>
+
 						Logged in as <strong>Administrator</strong>
+
+						<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
 							<% else %>
 							<li><%= link_to image_tag("admin.png", :style => 'margin-right: 150px;') + 'Admin Controls', new_admin_session_path %></li>
 								<li><%= link_to image_tag("signup.png", :style => 'margin-right: 150px;') + 'Sign Up!', new_end_user_registration_path %></li>
