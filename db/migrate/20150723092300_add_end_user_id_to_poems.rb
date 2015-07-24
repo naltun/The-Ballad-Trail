@@ -1,4 +1,4 @@
-class AddEndUserIdToPoem < ActiveRecord::Migration
+class AddEndUserIdToPoems < ActiveRecord::Migration
   def change
     add_column :poems, :end_user_id, :integer
   end

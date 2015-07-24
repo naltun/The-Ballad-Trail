@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150721141743) do
+ActiveRecord::Schema.define(version: 20150723092300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20150721141743) do
     t.string   "medialink_content_type"
     t.integer  "medialink_file_size"
     t.datetime "medialink_updated_at"
+    t.integer  "end_user_id"
   end
 
   add_index "poems", ["composer_id"], name: "index_poems_on_composer_id", using: :btree
@@ -101,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150721141743) do
     t.string   "medialink_content_type"
     t.integer  "medialink_file_size"
     t.datetime "medialink_updated_at"
+    t.integer  "end_user_id"
   end
 
   add_index "songs", ["composer_id"], name: "index_songs_on_composer_id", using: :btree

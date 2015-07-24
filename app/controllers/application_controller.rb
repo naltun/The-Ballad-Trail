@@ -4,10 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
 
- def authenticate_end_user!
-  return if admin_signed_in?
-  super
-end
+  def authenticate_end_user!
+    return if admin_signed_in?
+    super
+  end
 
   def songs
   end

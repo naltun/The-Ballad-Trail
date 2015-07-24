@@ -15,18 +15,18 @@ places = Place.create([
 	])
 	
 if Admin.count == 0
-puts "Creating admin user"
+
 Admin.create!(
              email: "mnikole9@gmail.com",
              password:              "password",
              password_confirmation: "password")
 end
       
-10.times do |n|
+10.times do
   email = Faker::Internet.free_email
   password = "theballad"
   EndUser.create!(email: email,
-               password:              password,
+             password:              password,
                password_confirmation: password)
 end
 
