@@ -15,7 +15,7 @@ places = Place.create([
 	])
 	
 if Admin.count == 0
-puts "Creating admin user"
+
 Admin.create!(
              email: "mnikole9@gmail.com",
              password:              "password",
