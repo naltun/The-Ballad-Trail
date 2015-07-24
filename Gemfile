@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
+
 gem 'rails',        '4.2.0'
 gem 'sass-rails',   '5.0.2'
 gem 'uglifier',     '2.5.3'
@@ -27,7 +29,7 @@ group :development, :test do
   gem 'byebug',      '3.4.0'
   gem 'web-console', '2.0.0.beta3'
   gem 'spring',      '1.1.3'
-  #gem 'faker', '~> 1.4.3'
+  gem 'faker', '~> 1.4.3'
 end
 
 group :test do

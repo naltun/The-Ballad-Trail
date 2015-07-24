@@ -2,7 +2,6 @@ class PoemsController < ApplicationController
 	before_action :authenticate_end_user!, except: [:index, :show]
 	before_action :find_poem, only: [:show, :edit, :update, :destroy]
 	
-
 	def index
 		@poems = Poem.all.order("created_at DESC")
 	end

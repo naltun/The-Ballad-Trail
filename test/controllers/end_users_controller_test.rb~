@@ -1,0 +1,12 @@
+require 'test_helper'
+
+class EndUsersControllerTest < ActionController::TestCase
+
+test "should redirect index when not logged in" do
+    get :index, id: @admin
+    assert_not flash.empty?
+    assert_redirected_to new_admin_session_path 
+  end
+
+
+end 
