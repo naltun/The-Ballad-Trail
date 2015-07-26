@@ -1,8 +1,25 @@
 
+
 html, body {
     margin: 0;
 }
 
+
+#share-buttons {
+	position: absolute;
+	top:22px;
+	right:10px;
+	border-left: 1px solid #99cc66;
+}
+
+#share-buttons img {
+	width: 30px;
+	padding: 5px;
+	border: 0;
+	box-shadow: 0;
+	display: block;
+}
+ 
 .menu_box_background {
 	float: left; 
 	height: 100%; 
@@ -12,7 +29,7 @@ html, body {
 	text-align: left;
 	z-index: 1000;
 	position: absolute;
-	opacity: 0.7;	
+	opacity: 0.8;	
 	overflow: hidden;
 	border-radius: 5px;
 }
@@ -25,7 +42,7 @@ html, body {
 	text-align: left;
 	z-index: 1000;
 	position: absolute;
-	overflow: hidden;
+	overflow: scroll;
 	border-radius: 5px;
 }
 
@@ -51,17 +68,47 @@ html, body {
 .header {
 	height: auto;
 	overflow: hidden;
+	border-bottom: 1px solid #99cc66;
+
 }
 
-#topLine {
-	height: 10px;
-	background-color: #99cc66; 	
+.header_wrapper {
+	position: relative;
+	overflow: hidden;
+	padding: 15px;
 }
 
-#links {
+.logo {
+	overflow: hidden;
+	float: left;
+	margin-right: 10px;
+	padding-right: 10px;
+}
+
+.links {
 	position: relative;
 	min-height: auto;
-	background-color: #99cc66; 
+	background-color: white; 
+	overflow: hidden;
+	margin-top: 30px;
+	font: 14px Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+}
+
+.left {
+	overflow: hidden;
+	float: left;
+	border-right: 1px solid #99cc66;
+	margin-right: 10px;
+}
+
+.right {
+	overflow: hidden;
+	margin-left: 0px;
+}
+
+.links li {
+	text-decoration:none; 
+	list-style-type:none; 
 }
 
 #search {
@@ -74,18 +121,44 @@ li {
 
 }
 
+h1 {
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 26px;
+}
+
+h3 {
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 500;
+	line-height: 15px;
+}
+
+p {
+	font-family: Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
 
 
 nav { 
 	z-index: 1001;
-    width: 50px;
-    height: 12px;
-    top: 75px;
+    width: 75px;
+    height: 10px;
+	top: 75px;
     padding: 2px ;  
 	position:absolute;
-	right: 213px;
+	right: 186px;
 	background-color:white; 
-	font:12px, Times New Roman; 
+	font:14px Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif; 
 	text-align:left;
 }
 
@@ -132,7 +205,7 @@ nav ul ul {
 	position:absolute; 
 	left:0; 
 	background:white; 
-	border: 1px solid #CC9900 
+	border: 1px solid #99cc66; 
 }
 
 nav ul ul a:hover { 
