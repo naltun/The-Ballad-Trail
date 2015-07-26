@@ -150,12 +150,10 @@
 		        <ul>  
 			        <li> <p>MENU</p>
 			        	<ul>
-			            <li><%= link_to image_tag("contact.png", :style => 'margin-right: 100px;') + 'Contact us', contact_path %></li>
-			            <li><%= link_to image_tag("about.png", :style => 'margin-right: 100px;') + 'About', about_path %></li>
 			            <% if end_user_signed_in? %>
 										Logged in as <strong><%= current_end_user.email %></strong>.
-										<li><%= link_to image_tag("edit_profile.png", :style => 'margin-right: 100px;') + 'Edit profile', edit_end_user_registration_path %></li>
-										<li><%= link_to image_tag("edit.png", :style => 'margin-right: 100px;') + 'Logout', destroy_end_user_session_path, method: :delete %></li>
+										<li><%= link_to image_tag("edit_profile.png", :style => 'margin-right: 108px;') + 'Edit profile', edit_end_user_registration_path %></li>
+										<li><%= link_to image_tag("logout.png", :style => 'margin-right: 108px;') + 'Logout', destroy_end_user_session_path, method: :delete %></li>
 				
 									<% elsif admin_signed_in? %>
 										Logged in as <strong>the Administrator</strong>
@@ -165,10 +163,13 @@
 										<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
 
 									<% else %>
-										<li><%= link_to image_tag("admin.png", :style => 'margin-right: 100px;') + 'Admin Controls', new_admin_session_path %></li>
-										<li><%= link_to image_tag("signup.png", :style => 'margin-right: 100px;') + 'Sign Up!', new_end_user_registration_path %></li>
+										<li><%= link_to image_tag("admin.png", :style => 'margin-right: 108px;') + 'Admin Controls', new_admin_session_path %></li>
+										<li><%= link_to image_tag("signup.png", :style => 'margin-right: 108px;') + 'Sign Up!', new_end_user_registration_path %></li>
 										<li><%= link_to image_tag("login.png", :style => 'margin-right: 108px;') + "Login", new_end_user_session_path %></li>
-									<% end %>
+									<% end %>			           
+									<li><%= link_to image_tag("contact.png", :style => 'margin-right: 100px;') + 'Contact us', contact_path %></li>
+			            			<li><%= link_to image_tag("about.png", :style => 'margin-right: 100px;') + 'About', about_path %></li>
+
 					      </ul>                
 					    </li>
 					</ul>
