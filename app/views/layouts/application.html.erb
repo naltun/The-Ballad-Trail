@@ -88,13 +88,24 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>
-		$(document).ready(function(){
-	  	$("button").click(function(){
-	    	$("div.menu_box, div.menu_box_background").slideToggle();
-	    });
-		});
+			$(document).ready(function(){
+		  	$("button").click(function(){
+		    	$("div.menu_box, div.menu_box_background, div.menu_box_background_upper").slideToggle();
+		    });
+			});
 		</script>
 
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+			    $("#topNav, li").mouseover(function(){
+			        $("#topNav, li").css("color", "green");
+			    });
+			    $("#topNav, li").mouseout(function(){
+			        $("#topNav, li").css("color", "black");
+			    });
+			});
+		</script>
 
 	</head>
 
@@ -120,28 +131,22 @@
 
 			<div class="header">
 
-			<div class="header_wrapper">
 				<div class="logo">
-					<%= link_to image_tag("logo.png", :style => 'margin-left: 5%; margin-top: 5px;'), home_path %>
+					<%= link_to image_tag("logo.png", :style => 'margin-left: 15px; margin-top: 15px;'), home_path %>
 				</div>
-				<div class="links">
-					<div class="left">
+				<div class="stripe">
+   					  <button class="SeeMore">Hide</button>
 					  <li><%= link_to 'All Places', places_path %> </li>
-					  <li><%= link_to 'All Composers', composers_path %> </li>
-					</div>
-					<div class="right">
+					  <li><%= link_to 'All Composers', composers_path %> </li>	
 					  <li><%= link_to 'All Poems', poems_path %> </li>
 					  <li><%= link_to 'All Songs', songs_path %> </li>
 					  <li><% if admin_signed_in? %>
 							<%= link_to 'All Users', end_users_path %>
 						<% end %> </li>
-					</div>
-				</div> 
 			</div>
 
-			<button>Hide</button>
 
-					<nav id="topNav">
+			<nav id="topNav">
 		        <ul>  
 			        <li> <p>MENU</p>
 			        	<ul>
@@ -166,8 +171,8 @@
 									<% end %>
 					      </ul>                
 					    </li>
-						</ul>
-		    	</nav>
+					</ul>
+		    </nav>
 
 				  <!-- Script to menu -->
 
@@ -211,6 +216,7 @@
 				<!-- Adds the green box -->
 				<div class="menu_box_background">	
 				</div>
+
 
 				<div class="menu_box">	
 						<%= yield %> 
