@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.0'
+#ruby '2.2.0'
 
 gem 'rails',        '4.2.0'
 gem 'sass-rails',   '5.0.2'
@@ -18,8 +18,6 @@ gem 'devise'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip', '~> 4.3.0'
 #gem 's3_direct_upload', '~> 0.1.7'
-
-
 
 
 
