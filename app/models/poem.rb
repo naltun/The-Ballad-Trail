@@ -1,5 +1,5 @@
 class Poem < ActiveRecord::Base
-
+	
 	belongs_to :end_user
 	belongs_to :place
 	belongs_to :composer

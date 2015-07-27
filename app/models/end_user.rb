@@ -8,3 +8,4 @@ class EndUser < ActiveRecord::Base
   has_many :places
   has_many :composers
 end
+
