@@ -23,6 +23,13 @@
 		
 		<!-- Initializes map and creates map object -->
 		<script type="text/javascript">
+
+			var locations = [	
+				<% Place.each do |p| %>
+					[<%= p.name %>, <%= p.latitude %>, <%= p.longitude %>]
+				<% end %>
+			];
+
 		  function initialize() {
 		    var mapOptions = {
 		      center: { lat: 57.331380, lng: -2.320982},
