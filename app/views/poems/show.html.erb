@@ -2,7 +2,12 @@
 <p><%= @poem.place %></p>
 <p><%= @poem.description %></p>
 <p><%= @poem.composer %></p>
-<p><%= @poem.medialink %></p>
+
+<p><audio controls>
+  <source src="<%= @poem.medialink %>" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+
 <p><%= @poem.subtitle %></p>
 
 

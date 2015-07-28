@@ -2,7 +2,11 @@
 <p><%= @song.place %></p>
 <p><%= @song.description %></p>
 <p><%= @song.composer %></p>
-<p><%= @song.medialink %></p>
+<p><audio controls>
+  <source src="<%= @song.medialink %>" type="audio/mpeg">
+Your browser does not support the audio element.
+</audio>
+</p><%= @song.medialink %></p>
 <p><%= @song.lyrics %></p>
 
 
