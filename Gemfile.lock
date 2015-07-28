@@ -99,6 +99,7 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
+    ffi (1.9.10)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.9)
@@ -281,3 +282,6 @@ DEPENDENCIES
   turbolinks (= 2.3.0)
   uglifier (= 2.5.3)
   web-console (= 2.0.0.beta3)
+
+BUNDLED WITH
+   1.10.4
