@@ -22,67 +22,36 @@
 		</script>
 		
 		<!-- Initializes map and creates map object -->
-		<script type="text/javascript">
-		  function initialize() {
-		    var mapOptions = {
-		      center: { lat: 57.331380, lng: -2.320982},
-		      zoom: 10
-		    };
-		    var map = new google.maps.Map(document.getElementById('map-canvas'),
-		        mapOptions);
-			  }
-		  google.maps.event.addDomListener(window, 'load', initialize);
+		<script type="text/javascript">		 
 
+			function success(position) {
 
-			function initialize() {
-			  var mapOptions = {
-			    zoom: 10
-			  };
-			  map = new google.maps.Map(document.getElementById('map-canvas'),
-			      mapOptions);
-
-			  // Try HTML5 geolocation
-			  if(navigator.geolocation) {
-			    navigator.geolocation.getCurrentPosition(function(position) {
-			      var pos = new google.maps.LatLng(position.coords.latitude,
-			                                       position.coords.longitude);
-
-			      var infowindow = new google.maps.InfoWindow({
-			        map: map,
-			        position: pos,
-			        content: 'Your location.'
-			      });
-
-			      map.setCenter(pos);
-			    }, function() {
-			      handleNoGeolocation(true);
-			    });
-			  } else {
-			    // Browser doesn't support Geolocation
-			    handleNoGeolocation(false);
-			  }
-			}
-
-			function handleNoGeolocation(errorFlag) {
-			  if (errorFlag) {
-			    var content = 'Error: The Geolocation service failed.';
-			  } else {
-			    var content = 'Error: Your browser doesn\'t support geolocation.';
-			  }
-
+			  var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+			  
 			  var options = {
-			    map: map,
-			    position: new google.maps.LatLng(60, 105),
-			    content: content
-
+			    zoom: 10,
+			    center: coords,
+			    mapTypeControl: false,
+			    navigationControlOptions: {
+			    	style: google.maps.NavigationControlStyle.SMALL
+			    },
+			    mapTypeId: google.maps.MapTypeId.ROADMAP
 			  };
 
-			  var infowindow = new google.maps.InfoWindow(options);
-			  map.setCenter(options.position);
+			  var map = new google.maps.Map(document.getElementById("map-canvas"), options);
+
+			  var marker = new google.maps.Marker({
+			      position: coords,
+			      map: map,
+			      title:"You are here!"
+			  });
 			}
 
-			google.maps.event.addDomListener(window, 'load', initialize);
-
+			if (navigator.geolocation) {
+			  navigator.geolocation.getCurrentPosition(success);
+			} else {
+			  error('Geo Location is not supported');
+			}
 
 		</script>
 
