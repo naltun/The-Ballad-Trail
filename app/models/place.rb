@@ -7,7 +7,7 @@ class Place < ActiveRecord::Base
 	has_many :composers, through: :songs
 	has_many :composers, through: :poems
 
-	has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#"}
+	has_attached_file :image, styles: { large: "600x600>", medium: "300x300>", thumb: "150x150#"},
 	:storage => :s3,
 	:url => ":s3_domain_url",
 	:path => "images/:id/:filename",
