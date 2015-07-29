@@ -22,7 +22,4 @@ describe Place do
 		place.valid?
 		expect(place.valid?).to eq false
 	end
-
-#RSpec.describe Place, :type => :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
 end
