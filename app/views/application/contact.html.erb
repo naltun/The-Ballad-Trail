@@ -1,11 +1,34 @@
 <div class="form">
-	<form>
+	<form name="form" onsubmit="return validateForm()">
 		Name:<br>
-		<input type="text" name="firstname" placeholder="Your Name"><br>
+		<input type="text" name="name" placeholder="Your Name"><br>
 		Email:<br>
-		<input type="text" name="firstname" placeholder="Your Email"><br>
+		<input type="text" name="email" placeholder="Your Email"><br>
 		Message:<br>
 		<textarea name="textarea" rows="10" cols="30" placeholder="Your Message"></textarea><br>
 		<input type="submit" value="Submit">
 	</form>
+
+<script>
+	function validateForm() {
+    var x = document.forms["form"]["name"].value;
+    if (x == null || x == "") {
+        alert("Name must be filled out");
+        return false;
+    }
+
+    var y = document.forms["form"]["email"].value;
+    if (y == null || y == "") {
+        alert("Email must be filled out");
+        return false;
+    }
+    
+    var z = document.forms["form"]["textarea"].value;
+    if (z == null || z == "") {
+        alert("Message must be filled out");
+        return false;
+    }
+
+}
+</script>
 </div>
