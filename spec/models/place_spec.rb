@@ -5,12 +5,22 @@ describe Place do
 		expect(build(:place)).to be_valid
 	end
 
-	it 'is invalid without a latitude' do
-		expect(build(:place, latitude: nil)).to_not be_valid
+	it 'is invalid without a latitude and longitude' do
+		place = Place.new(latitude: nil, longitude: nil)
+		place.valid?
+		expect(place.valid? == false)
 	end
 
-	it 'is invalid without a longitude' do
-		expect(build(:place, longitude: nil)).to_not be_valid
+	it "is invalid without a region" do
+		place = Place.new(region: nil)
+		place.valid?
+		expect(place.valid? == false)
+	end
+
+	it "is invalid without an end_user_id" do
+		place = Place.new(end_user_id: nil)
+		place.valid?
+		expect(place.valid? == false)
 	end
 
 #RSpec.describe Place, :type => :model do

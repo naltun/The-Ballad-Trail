@@ -6,11 +6,15 @@ describe Poem do
 	end
 
 	it 'is invalid without a title' do
-		expect(build(:poem, title: nil)).to_not be_valid
+		poem = Poem.new(title: nil)
+		poem.valid?
+		expect(poem.valid? == false)
 	end
 
-	it 'is invalid without a link' do
-		expect(build(:poem, link: nil)).to_not be_valid
+	it 'is invalid without a place_id, composer_id, end_user_id' do
+		poem = Poem.new(place_id: nil, composer_id: nil, end_user_id: nil)
+		poem.valid?
+		expect(poem.valid? == false)
 	end
 
 #RSpec.describe Poem, :type => :model do

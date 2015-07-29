@@ -5,13 +5,18 @@ describe Composer do
 		expect(build(:composer)).to be_valid
 	end
 
-	it 'is invalid without a first name' do
-		expect(build(:composer, fname: nil)).to_not be_valid
+	it 'is invalid without a firstname (as fname) and lastname (as lname)' do
+		composer = Composer.new(fname: nil, lname: nil)
+		composer.valid?
+		expect(composer.valid? == false)
 	end
 
-	it 'is invalid without a link' do
-		expect(build(:composer, lname: nil)).to_not be_valid
+	it "ins invalid without an end_user_id" do
+		composer = Composer.new(end_user_id: nil)
+		composer.valid?
+		expect(composer.valid? == false)
 	end
+	
 #RSpec.describe Composer, :type => :model do
   #pending "add some examples to (or delete) #{__FILE__}"
 end
