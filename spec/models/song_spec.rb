@@ -6,11 +6,15 @@ describe Song do
 	end
 
 	it 'is invalid without a title' do
-		expect(build(:song, title: nil)).to_not be_valid
+		song = Song.new(title: nil)
+		song.valid?
+		expect(song.valid? == false)
 	end
 
-	it 'is invalid without a link' do
-		expect(build(:song, link: nil)).to_not be_valid
+	it 'is invalid without a place_id, composer_id, end_user_id' do
+		song = Song.new(place_id: nil, composer_id: nil, end_user_id: nil)
+		song.valid?
+		expect(song.valid? == false)
 	end
 
 
