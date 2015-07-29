@@ -12,6 +12,6 @@ RSpec.describe Admin, :type => :model do
 	it "is invalid without an email and password" do
 		admin = Admin.new(email: nil, password: nil)
 		admin.valid?
-		expect(admin.valid? == false)
+		expect(admin.valid?).to eq false
 	end
 end

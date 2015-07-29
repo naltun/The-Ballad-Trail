@@ -8,24 +8,25 @@ describe Composer do
 	it 'is invalid without a firstname (as fname) and lastname (as lname)' do
 		composer = Composer.new(fname: nil, lname: nil)
 		composer.valid?
-		expect(composer.valid? == false)
+		expect(composer.valid?).to eq false
 	end
 
 	it "ins invalid without an end_user_id" do
 		composer = Composer.new(end_user_id: nil)
 		composer.valid?
-		expect(composer.valid? == false)
+		expect(composer.valid?).to eq false
 	end
 	
 	it "is invalid without a composer type" do
 		composer = Composer.new(composer_type: nil)
 		composer.valid?
-		expect(composer.valid? == false)
+		expect(composer.valid?).to eq false
 	end
 
 	it "is invalid without a bio" do
 		composer = Composer.new(bio: nil)
 		composer.valid?
+		# Contains the following syntax as I like it better :)
 		expect(composer.valid? == false)
 	end
 

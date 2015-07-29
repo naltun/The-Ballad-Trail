@@ -8,19 +8,19 @@ describe Song do
 	it 'is invalid without a title' do
 		song = Song.new(title: nil)
 		song.valid?
-		expect(song.valid? == false)
+		expect(song.valid?).to eq false
 	end
 
 	it 'is invalid without a place_id, composer_id, end_user_id' do
 		song = Song.new(place_id: nil, composer_id: nil, end_user_id: nil)
 		song.valid?
-		expect(song.valid? == false)
+		expect(song.valid?).to eq false
 	end
 
 	it "is invalid without lyrics" do
 		song = Song.new(lyrics: nil)
 		song.valid?
-		expect(song.valid? == false)
+		expect(song.valid?).to eq false
 	end
 
 #RSpec.describe Song, :type => :model do
