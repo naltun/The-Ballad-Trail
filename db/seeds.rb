@@ -8,7 +8,8 @@
 
 # Drops table data so that each 'rake db:seed' does not add duplicate information
 Place.delete_all
-# Creates rows for Places table
+ Creates rows for Places table
+
 places = Place.create([
 	{ name: 'Bennachie', latitude: 57.291939, longitude: -2.565474, region: 'Inverurie' }, 
 	{ name: 'Harlaw', latitude: 57.307924, longitude: -2.413533, region: 'Inverurie' },
@@ -28,6 +29,3 @@ end
              password:              password,
                password_confirmation: password)
 end
-
-
-
