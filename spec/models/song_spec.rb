@@ -17,6 +17,11 @@ describe Song do
 		expect(song.valid? == false)
 	end
 
+	it "is invalid without lyrics" do
+		song = Song.new(lyrics: nil)
+		song.valid?
+		expect(song.valid? == false)
+	end
 
 #RSpec.describe Song, :type => :model do
   #pending "add some examples to (or delete) #{__FILE__}"

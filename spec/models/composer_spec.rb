@@ -17,6 +17,18 @@ describe Composer do
 		expect(composer.valid? == false)
 	end
 	
+	it "is invalid without a composer type" do
+		composer = Composer.new(composer_type: nil)
+		composer.valid?
+		expect(composer.valid? == false)
+	end
+
+	it "is invalid without a bio" do
+		composer = Composer.new(bio: nil)
+		composer.valid?
+		expect(composer.valid? == false)
+	end
+
 #RSpec.describe Composer, :type => :model do
   #pending "add some examples to (or delete) #{__FILE__}"
 end

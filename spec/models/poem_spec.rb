@@ -17,6 +17,12 @@ describe Poem do
 		expect(poem.valid? == false)
 	end
 
+	it "is invalid without a subtitle" do
+		poem = Poem.new(subtitle: nil)
+		poem.valid?
+		expect(poem.valid? == false)
+	end
+	
 #RSpec.describe Poem, :type => :model do
   #pending "add some examples to (or delete) #{__FILE__}"
 end
