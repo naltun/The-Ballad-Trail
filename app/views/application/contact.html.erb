@@ -24,6 +24,14 @@
         return false;
     }
     
+    var email = document.forms["form"]["email"].value;
+    var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+
+    if(!regex.test(email)){
+        alert("Please enter a valid email");
+        return false;
+    }
+
     var z = document.forms["form"]["textarea"].value;
     if (z == null || z == "") {
         alert("Message must be filled out");
