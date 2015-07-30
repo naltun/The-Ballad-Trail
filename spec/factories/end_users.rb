@@ -1,6 +1,6 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
-FactoryGirl.define do
-  factory :end_user do
-  end
+FactoryGirl .define do
+	factory :end_user do
+		sequence(:email) { |n| "tbt_user#{n}@example.com" }
+		password "password"
+	end
 end

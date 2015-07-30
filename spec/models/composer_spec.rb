@@ -2,16 +2,31 @@ require 'rails_helper'
 
 describe Composer do
 	it 'has a valid factory' do
-		expect(build(:composer)).to be_valid
+		expect(FactoryGirl.build(:composer)).to be_valid
 	end
 
-	it 'is invalid without a first name' do
-		expect(build(:composer, fname: nil)).to_not be_valid
+	it 'is invalid without a firstname (as fname) and lastname (as lname)' do
+		composer = FactoryGirl.build(:composer, fname: nil, lname: nil)
+		composer.valid?
+		expect(composer.valid?).to eq false
 	end
 
-	it 'is invalid without a link' do
-		expect(build(:composer, lname: nil)).to_not be_valid
+	it "is invalid without an end_user_id" do
+		composer = FactoryGirl.build(:composer, end_user_id: nil)
+		composer.valid?
+		expect(composer.valid?).to eq false
 	end
-#RSpec.describe Composer, :type => :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
+	
+	it "is invalid without a composer type" do
+		composer = FactoryGirl.build(:composer, composer_type: nil)
+		composer.valid?
+		expect(composer.valid?).to eq false
+	end
+
+	it "is invalid without a bio" do
+		composer = FactoryGirl.build(:composer, bio: nil)
+		composer.valid?
+		# Contains the following syntax as I like it better :)
+		expect(composer.valid?).to eq false
+	end
 end
