@@ -2,10 +2,9 @@
 
 <p><% @places.each do |place| %></p>
 <h3><%= link_to place.name, place %></h3>
-<tr>
-	<td><%= image_tag @place.image.url(:medium) %></td>
-	<td><%= place.region %></td>
-</tr>
+
+<p><%= image_tag @place.image.url(:medium) %> </p>
+<p><%= place.region %></p>
 
 
 <p><%= image_tag @place.image.url(:medium) %></p>
