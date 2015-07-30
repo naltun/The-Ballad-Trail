@@ -6,12 +6,13 @@ RSpec.describe ComposersController, :type => :controller do
 	    composer = Composer.all.order("created_at DESC")
 	    get :index
 	  end
+	 end
 
 	  it "renders the index template" do
 	    get :index
 	    expect(response).to render_template("index")
 	  end
-	end
+	
 
 	describe "GET show" do
 		it "renders the show template" do
@@ -25,18 +26,20 @@ RSpec.describe ComposersController, :type => :controller do
 			@composer = current_end_user.composers.build
 			get :new
 		end
+	end
 
 		it "renders the new template" do
 			get :new
 			expect(response).to render_template("new")
 		end
-	end
+	
 
 # Must look at this one
 	describe "GET create" do
 		it "assigns @composer" do
 			@composer = current_end_user.composers.build(composer_params)
-		end						
+		end	
+	end					
 
 	describe "GET edit" do
 		it "renders the edit template" do
