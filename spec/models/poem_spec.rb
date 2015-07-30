@@ -22,7 +22,4 @@ describe Poem do
 		poem.valid?
 		expect(poem.valid?).to eq false
 	end
-	
-#RSpec.describe Poem, :type => :model do
-  #pending "add some examples to (or delete) #{__FILE__}"
 end
