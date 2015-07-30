@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20150723092300) do
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.string   "region"
+    t.string   "image"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "end_user_id"
