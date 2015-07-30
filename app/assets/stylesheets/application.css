@@ -114,6 +114,7 @@ html, body {
 
 .stripe li {
     text-decoration: none;
+    margin-left: 10px;
     color: white;
     font: 14px Optima, Segoe, 'Segoe UI', Candara, Calibri, Arial, sans-serif;    
     display: inline;
