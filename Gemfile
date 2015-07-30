@@ -18,10 +18,10 @@ gem 'devise'
 gem 'aws-sdk', '< 2.0'
 gem 'paperclip', '~> 4.3.0'
 gem 's3_direct_upload', '0.1.7'
-gem 'figaro'
 
 
 group :development, :test do
+  gem 'figaro'
   #gem 'sqlite3',     '1.3.9'
   gem 'factory_girl_rails', '~> 4.4.1'
   gem 'byebug',      '3.4.0'

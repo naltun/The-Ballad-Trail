@@ -49,5 +49,4 @@ class SongsController < ApplicationController
 	def song_params
 		params.require(:song).permit(:title, :description, :medialink, :lyrics)
 	end
-
 end
