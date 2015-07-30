@@ -2,9 +2,7 @@
 
 describe "admin sign in" do
 it "allows the administrator  to sign in " do
-    admin = Admin.create(:email    => "email@example.com",
-                       :password => "password")
-                       
+   
         visit "/admins/sign_in"
 
     fill_in "Email",    :with => "email@example.com"
