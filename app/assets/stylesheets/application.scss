@@ -238,3 +238,10 @@ nav ul ul a {
 	border-radius: 25px;
 }
 
+div.thumbnail {
+	width: 150px;
+	height: 100px;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";

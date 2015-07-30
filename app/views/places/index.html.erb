@@ -1,15 +1,24 @@
 <h1>PLACES </h1>
 
-<p><% @places.each do |place| %></p>
-<h3><%= link_to place.name, place %></h3>
+<div class="table-responsive">
+	<table class="table table-condensed">
+		<% @places.each do |place| %>
+			<tr><div class="col-md-">
+				<td><div class="thumbnail">
+				<%= image_tag place.image %>
+				</div></td>
+				<td><div class="placename">
+				<h4><%= link_to place.name, place %></h4>
+				</div></td>
+			</div></tr>
+		<% end %>
+	</table>
+</div>
 
-<p><%= image_tag place.image %> </p>
-<p><%= place.region %></p>
-
-
-<% end %>
 
 
 <% if end_user_signed_in? %>
 <p><%= link_to 'Fancy adding a Ballad?', new_place_path %></p>
+<% else %>
+<p><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></p>
 <% end %>
