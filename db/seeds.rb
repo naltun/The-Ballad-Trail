@@ -14,7 +14,7 @@ places = Place.create([
 	{ name: 'Harlaw', latitude: 57.307924, longitude: -2.413533, region: 'Inverurie', image: 'http://s0.geograph.org.uk/geophotos/02/96/15/2961549_3616b723.jpg' },
 	])
 
-=begin
+
 if Admin.count == 0
 Admin.create!(
              email: "mnikole9@gmail.com",
@@ -29,4 +29,3 @@ end
              password:              password,
                password_confirmation: password)
 end
-=end
