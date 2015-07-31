@@ -1,14 +1,32 @@
-<div class="form">
-	<form name="form" onsubmit="return validateForm()">
-		Name:<br>
-		<input type="text" name="name" placeholder="Your Name"><br>
-		Email:<br>
-		<input type="text" name="email" placeholder="Your Email"><br>
-		Message:<br>
-		<textarea name="textarea" rows="10" cols="30" placeholder="Your Message"></textarea><br>
-		<input type="submit" value="Submit">
-	</form>
-</div>
+<form class="form-horizontal" role="form" method="post" name="form" onsubmit="return validateForm()">
+    <div class="form-group">
+        <label form="name" name="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="name" name="name" placeholder="First & Last Name" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label form="email" name="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+            <input type="email" class="form-control" id="email" name="email" placeholder="example@domain.com" value="">
+        </div>
+    </div>
+    <div class="form-group">
+        <label form="message" class="col-sm-2 control-label">Message</label>
+        <div class="col-sm-10">
+            <textarea class="form-control" rows="4" name="textarea"></textarea>
+        </div>
+    </div>
+        <div class="col-sm-10 col-sm-offset-2">
+            <input id="submit" name="submit" type="submit" value="Send" class="btn btn-primary">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <! Will be used to display an alert to the user>
+        </div>
+    </div>
+</form>
 
 <script>
 	function validateForm() {
