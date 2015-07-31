@@ -10,10 +10,12 @@
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 	  <%= csrf_meta_tags %>
 
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
 	  <!-- Add styles to map -->
 	  <style type="text/css">
-	  	html, body, #map-canvas { height: 100%; margin: 0; padding: 0;}
+	  	html, body, #map-canvas { height: 100%; width: 100%; margin: 0; padding: 0; position: relative; float: left;}
 		</style>
 		
 		<!-- Connects to Google Javascript API -->
@@ -64,148 +66,136 @@
 			});
 		</script>
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-			    $("#topNav, li").mouseover(function(){
-			        $("#topNav, li").css("color", "green");
-			    });
-			    $("#topNav, li").mouseout(function(){
-			        $("#topNav, li").css("color", "black");
-			    });
-			});
-		</script>
-
 	</head>
 
 	<body>
 		<script type='text/javascript'>
-
-		(function()
-		{
-	 		if( window.localStorage )
-	  {
-	    if( !localStorage.getItem( 'firstLoad' ) )
-	    {
-	      localStorage[ 'firstLoad' ] = true;
-	      window.location=window.location;
-	    }  
-	    else
-	      localStorage.removeItem( 'firstLoad' );
-	  }
-		})();
-
+			(function()
+			{
+		 		if( window.localStorage )
+		  {
+		    if( !localStorage.getItem( 'firstLoad' ) )
+		    {
+		      localStorage[ 'firstLoad' ] = true;
+		      window.location=window.location;
+		    }  
+		    else
+		      localStorage.removeItem( 'firstLoad' );
+		  }
+			})();
 		</script>
-		<div class="wrapper">
-
+		<div class="wholePageWrap">
 			<div class="header">
 
-				<div class="logo">
-					<%= link_to image_tag("logo.png", :style => 'margin-left: 15px; margin-top: 15px;'), home_path %>
-				</div>
-				<div class="stripe">
-   					  <button class="SeeMore">Hide</button>
-					  <li><%= link_to 'All Places', places_path %> </li>
-					  <li><%= link_to 'All Composers', composers_path %> </li>	
-					  <li><%= link_to 'All Poems', poems_path %> </li>
-					  <li><%= link_to 'All Songs', songs_path %> </li>
-					  <li><%= link_to 'Add new Ballads', new_place_path %></li>
-					  <li><% if admin_signed_in? %>
-							<%= link_to 'All Users', end_users_path %>
-						<% end %> </li>		
-			</div>
+		<%= image_tag("background.png", :style => 'position:absolute; z-index: -1; opacity: 0.3; top: 0px; left: 0px;') %>		
+		<%= link_to image_tag("logo.png", :style => 'margin-top: 15px;'), home_path %>
 
-
-			<nav id="topNav">
-		        <ul>  
-			        <li> <p>MENU</p>
-			        	<ul>
-			            <% if end_user_signed_in? %>
-										Logged in as <strong><%= current_end_user.email %></strong>.
-										<li><%= link_to image_tag("edit_profile.png", :style => 'margin-right: 108px;') + 'Edit profile', edit_end_user_registration_path %></li>
-										<li><%= link_to image_tag("logout.png", :style => 'margin-right: 108px;') + 'Logout', destroy_end_user_session_path, method: :delete %></li>
-				
-									<% elsif admin_signed_in? %>
-										Logged in as <strong>the Administrator</strong>
-										<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
-										
-										Logged in as <strong>Administrator</strong>
-										<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
-
-									<% else %>
-										<li><%= link_to image_tag("admin.png", :style => 'margin-right: 108px;') + 'Admin Controls', new_admin_session_path %></li>
-										<li><%= link_to image_tag("signup.png", :style => 'margin-right: 108px;') + 'Sign Up!', new_end_user_registration_path %></li>
-										<li><%= link_to image_tag("login.png", :style => 'margin-right: 108px;') + "Login", new_end_user_session_path %></li>
-									<% end %>			           
-									<li><%= link_to image_tag("contact.png", :style => 'margin-right: 100px;') + 'Contact us', contact_path %></li>
-			            			<li><%= link_to image_tag("about.png", :style => 'margin-right: 100px;') + 'About', about_path %></li>
-
-					      </ul>                
-					    </li>
-					</ul>
-		    </nav>
-
-				  <!-- Script to menu -->
-
-				<script>
-					(function($){
-					//cache nav
-					var nav = $("#topNav");
-					//add indicators and hovers to submenu parents
-					nav.find("li").each(function() {
-					if ($(this).find("ul").length > 0) {
-					$("<span>").text(" ").appendTo($(this).children(":first"));
-
-					//show subnav on hover
-					$(this).mouseenter(function() {
-					$(this).find("ul").stop(true, true).slideDown();
-					});
-					//hide submenus on exit
-					$(this).mouseleave(function() {
-					$(this).find("ul").stop(true, true).slideUp();
-					});
-					}
-					});
-					})(jQuery);
-				</script>
-
-				<div id="share-buttons">
-					    <!-- Facebook -->
-				    <a href="http://www.facebook.com/" target="_blank">
-				        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
-				    </a>
-				    
-				    <!-- Google+ -->
-				    <a href="https://plus.google.com/" target="_blank">
-				        <img src="https://simplesharebuttons.com/images/somacro/google.png" alt="Google" />
-				    </a>
-				</div>
-
-			</div>
-
-			<div class="body">
-				<!-- Adds the green box -->
-				<div class="menu_box_background">	
-				</div>
-
-
-				<div class="menu_box">	
-						<%= yield %> 
-				</div>
-
-
-				<% if notice %>
-			  	<p class="alert alert-success"><%= notice %></p>
-				<% end %>
-				<% if alert %>
-			  	<p class="alert alert-danger"><%= alert %></p>
-				<% end %>
-
-				<!-- Adds map to screen -->
-				<div id="map-canvas"></div>
-			
-			</div>
-		</div>
+		<div class="userName">
+					  <% if end_user_signed_in? %>
+		     		   Logged in as <strong><%= current_end_user.email %></strong>
+		     		   <% end %>
+		     		   <% if admin_signed_in? %>
+		     		   Logged in as <strong>Administrator</strong>
+		     		   <% end %>
+		     		</div>
 		
+		<!-- Links to like on social media -->
+		<div class="share-buttons">
+		    <li><%= link_to image_tag("facebook.png", :style => ''), "http://www.facebook.com/" %></li>
+		    <li><%= link_to image_tag("twitter.png", :style => ''), "https://twitter.com" %> </li>
+		</div>
+	</div>
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <button class="navbar-brand"><%= image_tag("list.png") %></button>
+		    </div>
+
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Selection <span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+		             <li><%= link_to 'Places', places_path %> </li>
+		             <li><%= link_to 'Composers', composers_path %> </li>	
+					 <li><%= link_to 'Poems', poems_path %> </li>
+					 <li><%= link_to 'Songs', songs_path %> </li>
+					 <li><%= link_to 'Add new Ballad', new_place_path %></li>
+					 <li><% if admin_signed_in? %>
+						<%= link_to 'All Users', end_users_path %>
+					<% end %> </li>		
+		          </ul>
+		        </li>
+		      </ul>
+		      <form class="navbar-form navbar-left" role="search">
+		        <div class="form-group">
+		          <input type="text" class="form-control" placeholder="Search">
+		        </div>
+		        <button type="submit" class="btn btn-default">Search</button>
+		      </form>
+		      <ul class="nav navbar-nav navbar-right">
+		      	    <% if end_user_signed_in? %>
+						<li><%= link_to 'Logout', destroy_end_user_session_path, method: :delete %></li>
+					<% elsif admin_signed_in? %>
+						<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+					<% else %>
+						<li><%= link_to 'Signup', new_end_user_registration_path %></li>
+						<li><%= link_to "Login", new_end_user_session_path %></li>
+					<% end %>			           
+		        <li class="dropdown">
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Menu </strong><span class="caret"></span></a>
+		          <ul class="dropdown-menu">
+						<li><%= link_to image_tag("home.png", :style => 'margin-right: 100px;') + 'Home', home_path %></li>		          		           
+					    <li><%= link_to image_tag("about.png", :style => 'margin-right: 100px;') + 'About', about_path %></li>
+						<li><%= link_to image_tag("contact.png", :style => 'margin-right: 100px;') + 'Contact us', contact_path %></li>
+					    <% if end_user_signed_in? %>
+							<li><%= link_to image_tag("edit_profile.png", :style => 'margin-right: 100px;') + 'Edit profile', edit_end_user_registration_path %></li>
+						<% end %>	
+						<li><%= link_to image_tag("admin.png", :style => 'margin-right: 100px;') + 'Admin Controls', new_admin_session_path %></li>
+		          </ul>
+		        </li>
+		      </ul>
+		    </div>
+		  </div>
+		</nav>
+
+		<!-- Hides and shows the 'green menu box' -->
+		<script>
+		$(document).ready(function(){
+		    $(".navbar-brand").click(function(){
+		        $("div.wrapper, div.background, div.main").slideToggle();
+		    });
+		});
+		</script>
+
+		<!-- Creates transparent menu box over the map -->
+		<div class="bodyWrap">
+			<div class="wrapper">
+				<!-- Adds the green box -->
+				<div class="background"></div>
+				<div class="main">	
+					<%= yield %> 
+				</div>
+
+
+		</div>
+
+			<% if notice %>
+					<p class="alert alert-success"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+					<p class="alert alert-danger"><%= alert %></p>
+			<% end %>
+
+			<!-- Adds map to screen -->
+			<div id="map-canvas"></div>		
+		</div>
+	  </div>
 	</body>
 </html>

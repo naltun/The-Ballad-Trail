@@ -1,0 +1,147 @@
+			h1 {
+				font-family: 'Goudy Old Style', Garamond, 'Big Caslon', 'Times New Roman', serif;
+				font-size: 24px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 500;
+				line-height: 26px;
+			}
+
+			h3 {
+				font-family: 'Goudy Old Style', Garamond, 'Big Caslon', 'Times New Roman', serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 500;
+				line-height: 15px;
+			}
+
+			p {
+				font-family: 'Goudy Old Style', Garamond, 'Big Caslon', 'Times New Roman', serif;
+				font-size: 14px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 400;
+				line-height: 20px;
+			}
+
+			blockquote {
+				font-family: 'Goudy Old Style', Garamond, 'Big Caslon', 'Times New Roman', serif;
+				font-size: 21px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 400;
+				line-height: 30px;
+			}
+
+			pre {
+				font-family: 'Goudy Old Style', Garamond, 'Big Caslon', 'Times New Roman', serif;
+				font-size: 13px;
+				font-style: normal;
+				font-variant: normal;
+				font-weight: 400;
+				line-height: 18px;
+			}
+
+			.wholePageWrap {
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				position: relative;
+				float: left;
+			}
+
+			.bodyWrap {
+				margin-top: -20px;
+				height: 100%; 
+				width: 100%; 
+				position: relative; 
+				overflow:hidden; 
+				float: left;
+			}
+
+			.header {
+				margin: 15px;
+			}
+
+			.share-buttons {
+				position: absolute;
+				top: 25px;
+				right: 10px;
+				display: block;
+				border-left: 1px solid #99cc66;
+				padding-left: 20px;
+			}
+
+			.share-buttons li {
+				list-style-type: none;
+			}
+
+			.userName {
+				position: absolute;
+				width: auto;
+				top: 10px;
+				right: 85px;
+			}
+
+			.userName:after {
+				width:auto;
+			}
+
+			button {
+				border: none;
+				background-color: #F9F9F9;
+			}
+
+			.wrapper {
+			  width: 32%;
+			  height: 100%;
+			  display: inline-block;
+			  position: absolute;
+			  overflow: hidden;
+			}
+			.wrapper:after {
+			  padding-top: 32%;
+			  display: block;
+			  content: '';
+			}
+
+			.background {
+			  float:left;
+			  position: absolute;
+			  top: 0;
+			  bottom: 0;
+			  right: 0;
+			  left: 0;
+			  background-color: #99cc66;
+			  opacity: 0.7;
+			  padding: 20px;
+			  z-index: 1000;
+			  overflow: hidden;
+			}
+
+			.main {
+			  float:left;
+			  position: absolute;
+			  top: 0;
+			  bottom: 0;
+			  right: 0;
+			  left: 0;
+			  color: black;
+			  padding: 35px;
+			  z-index: 1000;
+			  overflow: scroll;
+			}
+
+			.dropdown {
+				z-index: 1200;
+			}
+			
+
+div.thumbnail {
+	width: 150px;
+	height: 100px;
+}
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
