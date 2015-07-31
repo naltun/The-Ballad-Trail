@@ -1,10 +1,29 @@
-<h3><%= @place.name %></h3>
+<div class="container-fluid">
+	<h4><%= @place.name %></h4>
+	<div class="imgshow">
+		<%= image_tag @place.image, :class => "showimg" %>
+	</div>
+	<div class="table-responsive">
+		<table class="table">
+			<tbody>
+				<tr>
+					<td><strong>Region</strong></td>
+					<td><%= @place.region %></td>
+				</tr>
+				<tr>
+					<td><strong>Songs about <%= @place.name %></strong></td>
+					<% @songs.each do |song| %>
+					<td><%= song.name %></td>
+					<% end %>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
 
-<%= image_tag @place.image %>
-
-<p><strong>Region</strong><%= @place.region %></p>
-
-<%= link_to "Edit", edit_place_path(@place)%>
-<%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %>
-
-<p><%= link_to 'Fancy adding a Ballad?', new_place_path %></p>
+<% if end_user_signed_in? %>
+<p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
+<p><strong><%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+<% else %>
+<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
+<% end %>

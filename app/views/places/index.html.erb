@@ -2,16 +2,18 @@
 
 <div class="table-responsive">
 	<table class="table table-condensed">
-		<% @places.each do |place| %>
-			<tr><div class="col-md-">
-				<td><div class="thumbnail">
-				<%= image_tag place.image %>
-				</div></td>
-				<td><div class="placename">
-				<h4><%= link_to place.name, place %></h4>
-				</div></td>
-			</div></tr>
-		<% end %>
+		<tbody>
+			<% @places.each do |place| %>
+				<tr><div class="col-md-12">
+					<td><div class="thumbnail">
+					<%= image_tag place.image %>
+					</div></td>
+					<td><div class="placename">
+					<h4><%= link_to place.name, place %></h4>
+					</div></td>
+				</div></tr>
+			<% end %>
+		</tbody>
 	</table>
 </div>
 

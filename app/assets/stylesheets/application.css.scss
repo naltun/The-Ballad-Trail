@@ -136,12 +136,16 @@
 			.dropdown {
 				z-index: 1200;
 			}
-			
 
-div.thumbnail {
-	width: 150px;
-	height: 100px;
-}
+			div.thumbnail {
+				width: 150px;
+				height: 100px;
+			}
+
+			.showimg {
+				width: 100%;
+				height: 100%;
+			}
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
