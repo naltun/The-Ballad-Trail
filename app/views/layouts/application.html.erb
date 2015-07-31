@@ -42,6 +42,8 @@
 
 			  var map = new google.maps.Map(document.getElementById("map-canvas"), options);
 
+			  var locations = <%= @places.to_json %>;
+
 			  var marker = new google.maps.Marker({
 			      position: coords,
 			      map: map,
