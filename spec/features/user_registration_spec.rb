@@ -1,5 +1,4 @@
-require "spec_helper"
-require 'rails_helper'
+
 
 describe "user registration" do
   it "allows new users to register with an email address and password" do
@@ -11,6 +10,6 @@ describe "user registration" do
 
     click_button "Sign up"
 
-    page.should have_content("Welcome! You have signed up successfully.")
+    page.should have_content("Logged in as email@example.com ")
   end
 end
