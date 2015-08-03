@@ -18,7 +18,7 @@ describe Composer do
 	end
 	
 	it "is invalid without a composer type" do
-		composer = FactoryGirl.build(:composer, composer_type: nil)
+		composer = FactoryGirl.build(:composer, category: nil)
 		composer.valid?
 		expect(composer.valid?).to eq false
 	end
@@ -27,6 +27,6 @@ describe Composer do
 		composer = FactoryGirl.build(:composer, bio: nil)
 		composer.valid?
 		# Contains the following syntax as I like it better :)
-		expect(composer.valid?).to eq false
+		expect(composer.valid?).to eq true
 	end
 end
