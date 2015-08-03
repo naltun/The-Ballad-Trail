@@ -1,4 +1,4 @@
-FactoryGirl .define do
+FactoryGirl.define do
 	factory :composer do
 		fname "John"
 		lname "Doe"
