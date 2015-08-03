@@ -20,7 +20,7 @@
 
 
 <% if end_user_signed_in? %>
-<p><%= link_to 'Fancy adding a Ballad?', new_place_path %></p>
+	<p><%= link_to 'Fancy adding a Ballad?', new_place_path %></p>
 <% else %>
-<p><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></p>
+	<p><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></p>
 <% end %>
