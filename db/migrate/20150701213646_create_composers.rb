@@ -5,7 +5,7 @@ class CreateComposers < ActiveRecord::Migration
     create_table :composers do |t|
       t.string :fname
       t.string :lname
-      t.string :composer_type
+      t.string :category
       t.text :bio
 
       t.timestamps null: false

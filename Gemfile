@@ -12,7 +12,7 @@ gem 'jbuilder',     '2.2.3'
 gem 'pg',           '0.17.1'
 gem 'puma', '~> 2.12.0'
 gem 'simple_form', '~> 3.1.0'
-gem 'rspec-rails', '~> 3.1.0'
+gem 'rspec-rails', '~> 3.3.3'
 gem 'sdoc',         '0.4.0', group: :doc
 gem 'devise'
 gem 'aws-sdk', '< 2.0'

@@ -3,7 +3,7 @@ FactoryGirl .define do
 		fname "John"
 		lname "Doe"
 		sequence(:end_user_id) { |n| "#{n}" }
-		composer_type "Poet"
+		category "Poet"
 		bio "I have a bio! I am from Aberdeenshire!"
 	end
 end

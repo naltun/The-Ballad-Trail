@@ -4,7 +4,7 @@ FactoryGirl.define do
   factory :song do
     title "My Way"
     description "There are few new rappers that have been as talked about as Fetty Wap, who happens to be rap’s current overnight sensation. The “Trap Queen” creator has already built a name for himself with his radio smash of a single and a a collaboration with a certain star MC may solidify him as being more than a flash in the pan."
-    link "http://cookieshq.co.uk/posts/introduction-to-postgis-and-rails/"
+    medialink "http://cookieshq.co.uk/posts/introduction-to-postgis-and-rails/"
     lyrics "My Way(feat. Monty)
 
 [Hook:]
