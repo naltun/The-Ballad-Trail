@@ -13,7 +13,7 @@
 				<tr>
 					<td><strong>Songs about <%= @place.name %></strong></td>
 					<% @songs.each do |song| %>
-					<td><%= song.name %></td>
+					<td><%= song.title %></td>
 					<% end %>
 				</tr>
 			</tbody>
@@ -21,7 +21,8 @@
 	</div>
 </div>
 
-<% if end_user_signed_in? %>
+
+<p><% if end_user_signed_in? %></p>
 <p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
 <p><strong><%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
 <% else %>
