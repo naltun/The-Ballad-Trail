@@ -1,5 +1,3 @@
-
-
 describe "user registration" do
   it "allows new users to register with an email address and password" do
     visit "/end_users/sign_up"

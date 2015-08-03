@@ -1,9 +1,5 @@
-
-
 describe "user sign in" do
   it "allows users to sign in after they have registered" do
-    
-
     visit "/end_users/sign_in"
 
     fill_in "Email",    :with => "email@example.com"

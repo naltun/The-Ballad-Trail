@@ -13,7 +13,10 @@ RSpec.describe ComposersController, :type => :controller do
 	    expect(response).to render_template("index")
 	  end
 	
+require 'rails_helper'
 
+RSpec.describe ComposersController, :type => :controller do
+	
 	describe "GET show" do
 		it "renders the show template" do
 			get :show
@@ -28,10 +31,12 @@ RSpec.describe ComposersController, :type => :controller do
 		end
 	end
 
+	describe "GET new" do
 		it "renders the new template" do
 			get :new
 			expect(response).to render_template("new")
 		end
+	end
 	
 
 # Must look at this one
