@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150723092300) do
+ActiveRecord::Schema.define(version: 20150803103825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,10 +37,10 @@ ActiveRecord::Schema.define(version: 20150723092300) do
   create_table "composers", force: :cascade do |t|
     t.string   "fname"
     t.string   "lname"
-    t.string   "composer_type"
+    t.string   "category"
     t.text     "bio"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "end_user_id"
   end
 
@@ -109,4 +109,8 @@ ActiveRecord::Schema.define(version: 20150723092300) do
   add_index "songs", ["composer_id"], name: "index_songs_on_composer_id", using: :btree
   add_index "songs", ["place_id"], name: "index_songs_on_place_id", using: :btree
 
+  add_foreign_key "poems", "composers"
+  add_foreign_key "poems", "places"
+  add_foreign_key "songs", "composers"
+  add_foreign_key "songs", "places"
 end

@@ -20,7 +20,7 @@ Admin.create!(
             password:              "password",
              password_confirmation: "password")
 end
-      
+
 10.times do
   email = Faker::Internet.free_email
   password = "theballad"
