@@ -1,5 +1,5 @@
 module ApplicationHelper
-	@x = 0
+  @x = 0
   @places = Array.new
   
   Place.all.each do |p|
