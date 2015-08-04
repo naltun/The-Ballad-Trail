@@ -17,9 +17,7 @@ class SongsController < ApplicationController
 	end
 
 	def create
-		@place = Place.find(params[:place_id])
 		@song = current_end_user.songs.build(song_params)
-		@song.place_id = @place.id
 
 		if @song.save
 			redirect_to @song
