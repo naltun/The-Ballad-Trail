@@ -46,6 +46,6 @@ class ComposersController < ApplicationController
 	end
 
 	def composer_params
-		params.require(:composer).permit(:fname, :lname, :composer_type, :bio)
+		params.require(:composer).permit(:fname, :lname, :category, :bio)
 	end
 end

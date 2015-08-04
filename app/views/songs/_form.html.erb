@@ -1,9 +1,41 @@
-<%= simple_form_for @song, html: {multipart: true} do |f| %>
-	<%= f.association :composer %>
-	<%= f.input :title %>
-	<%= f.input :description, hint: 'Brief description of what the song is about' %>
-	<%= f.input :medialink, as: :file, hint: 'upload Media files here' %>
-	<%= f.input :lyrics %>
-	<%= f.association :place %>
-	<%= f.button :submit %>
+<%= form_for @song, html: { multipart: true } do |f| %>
+  <% if @song.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@song.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+      <ul>
+      <% @song.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :medialink %><br>
+    <%= f.file_field :medialink %>
+  </div>
+  <div class="field">
+    <%= f.label :lyrics %><br>
+    <%= f.text_area :lyrics %>
+  </div>
+  <div>
+  	<%= f.label :composer_id %>
+    <%= f.collection_select :composer_id, Composer.all, :id, :fname %>
+  </div>
+  <div>
+  	<%= f.label :place_id %>
+    <%= f.collection_select :place_id, Place.all, :id, :name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

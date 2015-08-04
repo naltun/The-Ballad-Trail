@@ -8,6 +8,8 @@ class SongsController < ApplicationController
 	end
 
 	def show
+		@place = Place.where(song_id: @song)
+		@song = Song.find(params[:id])
 	end
 
 	def new
@@ -15,7 +17,9 @@ class SongsController < ApplicationController
 	end
 
 	def create
+		@place = Place.find(params[:place_id])
 		@song = current_end_user.songs.build(song_params)
+		@song.place_id = @place.id
 
 		if @song.save
 			redirect_to @song
@@ -47,6 +51,6 @@ class SongsController < ApplicationController
 	end
 
 	def song_params
-		params.require(:song).permit(:title, :description, :medialink, :lyrics)
+		params.require(:song).permit(:title, :description, :medialink, :lyrics, :place_id, :composer_id)
 	end
 end

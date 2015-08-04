@@ -10,21 +10,16 @@
 					<td><strong>Region</strong></td>
 					<td><%= @place.region %></td>
 				</tr>
-				<tr>
-					<td><strong>Songs about <%= @place.name %></strong></td>
-					<% @songs.each do |song| %>
-					<td><%= song.title %></td>
-					<% end %>
-				</tr>
 			</tbody>
 		</table>
 	</div>
 </div>
-
-
-<p><% if end_user_signed_in? %></p>
+<div><h4>Songs about <%= @place.name %></h4>
+	<%= render @songs %>
+</div>
+<p><% if @place.end_user == current_end_user %></p>
 	<p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
-	<p><strong><%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+	<p><strong><%= link_to "Delete", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
 <% else %>
 	<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
 <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150803103825) do
+ActiveRecord::Schema.define(version: 20150804111053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,8 +77,6 @@ ActiveRecord::Schema.define(version: 20150803103825) do
     t.string   "title"
     t.text     "description"
     t.text     "subtitle"
-    t.integer  "place_id"
-    t.integer  "composer_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "medialink_file_name"
@@ -86,6 +84,8 @@ ActiveRecord::Schema.define(version: 20150803103825) do
     t.integer  "medialink_file_size"
     t.datetime "medialink_updated_at"
     t.integer  "end_user_id"
+    t.integer  "composer_id"
+    t.integer  "place_id"
   end
 
   add_index "poems", ["composer_id"], name: "index_poems_on_composer_id", using: :btree
@@ -95,8 +95,6 @@ ActiveRecord::Schema.define(version: 20150803103825) do
     t.string   "title"
     t.text     "description"
     t.text     "lyrics"
-    t.integer  "place_id"
-    t.integer  "composer_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.string   "medialink_file_name"
@@ -104,6 +102,8 @@ ActiveRecord::Schema.define(version: 20150803103825) do
     t.integer  "medialink_file_size"
     t.datetime "medialink_updated_at"
     t.integer  "end_user_id"
+    t.integer  "composer_id"
+    t.integer  "place_id"
   end
 
   add_index "songs", ["composer_id"], name: "index_songs_on_composer_id", using: :btree

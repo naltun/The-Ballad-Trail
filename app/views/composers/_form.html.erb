@@ -1,7 +1,7 @@
 <%= simple_form_for @composer do |f| %>
 	<%= f.input :fname, label: 'First name'%>
 	<%= f.input :lname, label: 'Last name'%>
-	<%= f.input :category, hint: '"Singer" or "Poet"' %>
+	<%= f.input :category, hint: 'Singer or Poet' %>
 	<%= f.input :bio, hint: 'Brief Composer bio. You can also include links to external sources'%>
 	<%= f.button :submit %>
 <% end %>

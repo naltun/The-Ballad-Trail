@@ -46,6 +46,6 @@ class PoemsController < ApplicationController
 	end
 
 	def poem_params
-		params.require(:poem).permit(:title, :description, :medialink, :subtitle)
+		params.require(:poem).permit(:title, :description, :medialink, :subtitle, :place_id, :composer_id)
 	end
 end
