@@ -1,3 +1,0 @@
-class BalladController < ApplicationController
-
-end
