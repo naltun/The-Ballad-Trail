@@ -49,6 +49,28 @@
 			      map: map,
 			      title:"You are here!"
 			  });
+
+			  var Map = new google.maps.Map(document.getElementById("map-canvas") {
+			  	zoom: 10,
+			  	center: coords
+			  });
+
+			  var infoWindow = new google.maps.InfoWindow();
+
+			  var Marker, i;
+
+			  for (i = 0; i < locations.length; i++) {  
+		      Marker = new google.maps.Marker({
+		        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+		        map: map
+		      });
+
+		      google.maps.event.addListener(marker, 'click', (function(Marker, i) {
+		        return function() {
+		          infowindow.setContent(locations[i][0]);
+		          infowindow.open(map, Marker);
+		        }
+		      })(Marker, i));
 			}
 
 			if (navigator.geolocation) {
