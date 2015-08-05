@@ -5,14 +5,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+EndUser.delete_all
 if EndUser.count == 0
-EndUser.create!(
-email: "example@balladtrail.com",
-password: "password",
-password_confirmation: "password")
+  EndUser.create!(
+    email: "example@balladtrail.com",
+    password: "password",
+    password_confirmation: "password")
 end
+
 # Drops table data so that each 'rake db:seed' does not add duplicate information
 Place.delete_all
+
 # Creates rows for Places table
 end_user = EndUser.find(1) 
 places = end_user.places.create([
@@ -32,16 +35,16 @@ composers = end_user.composers.create([
   ])
 
 if Admin.count == 0
-Admin.create!(
-             email: "mnikole9@gmail.com",
-            password:              "password",
-             password_confirmation: "password")
+  Admin.create!(
+    email: "mnikole9@gmail.com",
+    password:              "password",
+    password_confirmation: "password")
 end
 
 10.times do
   email = Faker::Internet.free_email
   password = "theballad"
   EndUser.create!(email: email,
-             password:              password,
-               password_confirmation: password)
+                  password:              password,
+                  password_confirmation: password)
 end
