@@ -14,6 +14,9 @@
 		</table>
 		<h4>Songs about <%= @place.name %></h4>
 		<p><%= render @songs %></p>
+		<br>
+		<h4>Poems about <%= @place.name %></h4>
+		<p><%= render @poems %></p>
 	</div>
 	<p><% if @place.end_user == current_end_user %></p>
 	<p><strong><%= link_to 'Edit', edit_place_path %></strong></p>

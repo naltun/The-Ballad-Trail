@@ -9,6 +9,7 @@ class PlacesController < ApplicationController
 	def show
 		@place = Place.find(params[:id])
 		@songs = @place.songs
+		@poems = @place.poems
 	end
 
 	def new
