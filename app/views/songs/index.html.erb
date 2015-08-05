@@ -1,5 +1,16 @@
-<h1>SONGS </h1>
+<div class="page-header">
+	<h1>SONGS</h1>
+</div>
 
 <p><% @songs.each do |song| %></p>
 	<h3><%= link_to song.title, song %></h3>
-	<% end %>
+	<h5>Created by: <%= song.end_user.email %></h5>
+<% end %>
+<br>
+
+</br>
+<% if end_user_signed_in? %>
+<p><%= link_to 'Fancy adding a Ballad?', new_place_path %></p>
+<% else %>
+<p><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></p>
+<% end %>

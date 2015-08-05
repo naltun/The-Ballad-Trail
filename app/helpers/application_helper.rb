@@ -1,9 +1,16 @@
-module ApplicationHelper
-	@x = 0
-  @places = Array.new
-  
-  Place.all.each do |p|
-    @x += 1
-    @places.push("#{Place.find(@x).name}, #{Place.find(@x).latitude}, #{Place.find(@x).longitude}")
-  end
+module ApplicationHelper 
+	def name(x)
+		@name = Place.find(x).name
+		return @name
+	end
+
+	def latitude(x)
+		@latitude = Place.find(x).latitude
+		return @latitude
+	end
+
+	def longitude(x)
+		@longitude = Place.find(x).longitude
+		return @longitude
+	end
 end

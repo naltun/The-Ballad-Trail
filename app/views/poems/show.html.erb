@@ -1,15 +1,26 @@
-<h3><%= @poem.title %></h3>
-<p><%= @poem.place %></p>
-<p><%= @poem.description %></p>
-<p><%= @poem.composer %></p>
+<div class="container-fluid">
+	<h3><%= @poem.title %></h3>
+	<br>
+	<div>
+		<img src="<%= @poem.place.image %>" class="img-circle" width="60" height="50">
 
-<p><audio controls>
-  <source src="<%= @poem.medialink %>" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-
-<p><%= @poem.subtitle %></p>
-
-
-<%= link_to "Edit", edit_poem_path(@poem)%>
-<%= link_to "Destroy", poem_path(@poem), method: :delete, data: { confirm: "Are you sure?"} %>
+		<audio controls>
+			<source src="<%= @poem.medialink %>" type="audio/mpeg">
+				Your browser does not support the audio element.
+		</audio>
+		<h4>About the ballad:</h4>
+		<p><%= @poem.description %></p>
+		<h4>Lyrics:</h4>
+		
+		<button type="button" class=".btn-success" data-toggle="collapse" data-target="#demo">Click to view</button>
+		<div id="demo" class="collapse"><p><%= @poem.subtitle %></p></div>
+	</div>
+	<p>
+	<p><% if @poem.end_user == current_end_user %></p>
+	<p><strong><%= link_to 'Edit', edit_poem_path %></strong></p>
+	<p><strong><%= link_to "Delete", poem_path(@poem), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+	<% else %>
+	<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
+	<% end %>
+	</p>
+</div>

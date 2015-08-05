@@ -1,13 +1,26 @@
-<h3><%= @song.title %></h3>
-<p><%= @song.place %></p>
-<p><%= @song.description %></p>
-<p><%= @song.composer %></p>
-<p><audio controls>
-  <source src="<%= @song.medialink %>" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<p><%= @song.lyrics %></p>
+<div class="container-fluid">
+	<h3><%= @song.title %></h3>
+	<br>
+	<div>
+		<img src="<%= @song.place.image %>" class="img-circle" width="60" height="50">
 
-
-<%= link_to "Edit", edit_song_path(@song)%>
-<%= link_to "Destroy", song_path(@song), method: :delete, data: { confirm: "Are you sure?"} %>
+		<audio controls>
+			<source src="<%= @song.medialink %>" type="audio/mpeg">
+				Your browser does not support the audio element.
+		</audio>
+		<h4>About the ballad:</h4>
+		<p><%= @song.description %></p>
+		<h4>Lyrics:</h4>
+		
+		<button type="button" class=".btn-success" data-toggle="collapse" data-target="#demo">Click to view</button>
+		<div id="demo" class="collapse"><p><%= @song.lyrics %></p></div>
+	</div>
+	<p>
+	<p><% if @song.end_user == current_end_user %></p>
+	<p><strong><%= link_to 'Edit', edit_song_path %></strong></p>
+	<p><strong><%= link_to "Delete", song_path(@song), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+	<% else %>
+	<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
+	<% end %>
+	</p>
+</div>

@@ -7,6 +7,8 @@ class PoemsController < ApplicationController
 	end
 
 	def show
+		@poem = Poem.find(params[:id])
+		@place = @poem.place
 	end
 
 	def new
@@ -46,6 +48,6 @@ class PoemsController < ApplicationController
 	end
 
 	def poem_params
-		params.require(:poem).permit(:title, :description, :medialink, :subtitle)
+		params.require(:poem).permit(:title, :description, :medialink, :subtitle, :place_id, :composer_id)
 	end
 end

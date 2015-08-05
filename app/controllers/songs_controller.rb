@@ -8,6 +8,8 @@ class SongsController < ApplicationController
 	end
 
 	def show
+		@song = Song.find(params[:id])
+		@place = @song.place
 	end
 
 	def new
@@ -47,6 +49,6 @@ class SongsController < ApplicationController
 	end
 
 	def song_params
-		params.require(:song).permit(:title, :description, :medialink, :lyrics)
+		params.require(:song).permit(:title, :description, :medialink, :lyrics, :place_id, :composer_id)
 	end
 end

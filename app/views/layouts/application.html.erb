@@ -14,60 +14,64 @@
 	  <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 
 	  <!-- Add styles to map -->
-	  <style type="text/css">
-	  	html, body, #map-canvas { height: 100%; width: 100%; margin: 0; padding: 0; position: relative; float: left;}
-		</style>
-		
-		<!-- Connects to Google Javascript API -->
-		<script type="text/javascript"
-		  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz0j_R1FllX2cnZ_lJIsgZJtMitbI6vOY">
-		</script>
-		
-		<!-- Initializes map and creates map object -->
-		<script type="text/javascript">		 
+		 <style type="text/css">
+		 	html, body, #map-canvas { position: relative; width: 100%; height: 100%; margin: 0; padding: 0;}
+			</style>
+			
+			<!-- Connects to Google Javascript API -->
+			<script type="text/javascript"
+			 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz0j_R1FllX2cnZ_lJIsgZJtMitbI6vOY">
+			</script>
+			
+			<!-- Initializes map and creates map object and markers -->
+			<script type="text/javascript">
+			 function initialize() {
+					// Sets up coordinates (latitude, longitude) for markers
+					var myLatlng1 = new google.maps.LatLng(<%= latitude(1) %>, <%= longitude(1)%>)
+				 	var myLatlng2 = new google.maps.LatLng(<%= latitude(2) %>, <%= longitude(2) %>)
+				 	var myLatlng3 = new google.maps.LatLng(<%= latitude(3) %>, <%= longitude(3) %>)
+				 	var myLatlng4 = new google.maps.LatLng(<%= latitude(4) %>, <%= longitude(4) %>)
 
-			function success(position) {
+				 	// Centers marker over Aberdeen and sets zoom level to 10
+				  var mapOptions = {
+				    center: { lat: 57.331380, lng: -2.320982},
+				    zoom: 10
+				  };
 
-			  var coords = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			  
-			  var options = {
-			    zoom: 10,
-			    center: coords,
-			    mapTypeControl: false,
-			    navigationControlOptions: {
-			    	style: google.maps.NavigationControlStyle.SMALL
-			    },
-			    mapTypeId: google.maps.MapTypeId.ROADMAP
-			  };
+				  // Sets up map
+				  var map = new google.maps.Map(document.getElementById('map-canvas'),
+				      mapOptions);
 
-			  var map = new google.maps.Map(document.getElementById("map-canvas"), options);
+				  // Markers to be displayed
+				  // Markers contain coordinates set in myLatlng variables, and make a method call to application_helper to display a name from the model Place
+				  var marker1 = new google.maps.Marker({
+				  	position: myLatlng1,
+				  	map: map,
+				   	title: "<%= name(1) %>"
+				  });
 
-			  var locations = <%= @places.to_json %>;
+				  var marker2 = new google.maps.Marker({
+				  	position: myLatlng2,
+				  	map: map,
+				  	title: "<%= name(2) %>"
+				  });
 
-			  var marker = new google.maps.Marker({
-			      position: coords,
-			      map: map,
-			      title:"You are here!"
-			  });
-			}
+					var marker3 = new google.maps.Marker({
+			   		position: myLatlng3,
+			   		map: map,
+			   		title: "<%= name(3) %>"
+			   	});
 
-			if (navigator.geolocation) {
-			  navigator.geolocation.getCurrentPosition(success);
-			} else {
-			  error('Geo Location is not supported');
-			}
+					var marker4 = new google.maps.Marker({
+						position: myLatlng4,
+						map: map,
+						title: "<%= name(4) %>"
+					});
 
-		</script>
+			 }
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-		<script>
-			$(document).ready(function(){
-		  	$("button").click(function(){
-		    	$("div.menu_box, div.menu_box_background, div.menu_box_background_upper").slideToggle();
-		    });
-			});
-		</script>
-
+			 google.maps.event.addDomListener(window, 'load', initialize);
+			</script>
 	</head>
 
 	<body>
@@ -86,10 +90,9 @@
 		  }
 			})();
 		</script>
-		<div class="wholePageWrap">
 			<div class="header">
 
-		<%= image_tag("background.png", :style => 'position:absolute; z-index: -1; opacity: 0.3; top: 0px; left: 0px;') %>		
+			
 		<%= link_to image_tag("logo.png", :style => 'margin-top: 15px;'), home_path %>
 
 		<div class="userName">
@@ -108,7 +111,7 @@
 		</div>
 	
 		</div>
-			<nav class="navbar navbar-default">
+			<nav class="navbar navbar-default" style="margin-bottom: 0px;">
 			  <div class="container-fluid">
 			    <div class="navbar-header">
 			      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -117,40 +120,26 @@
 			        <span class="icon-bar"></span>
 			        <span class="icon-bar"></span>
 			      </button>
-			      <button class="navbar-brand"><%= image_tag("list.png") %></button>
+			      <button class="navbar-brand"><%= image_tag("list.png", :style => 'margin-top: -5px;') %></button>
 		    	</div>
 
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
 		        <li class="dropdown">
-		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Selection <span class="caret"></span></a>
+		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ballads <span class="caret"></span></a>
 		          <ul class="dropdown-menu">
-		             <li><%= link_to 'Places', places_path %> </li>
-		             <li><%= link_to 'Composers', composers_path %> </li>	
 								 <li><%= link_to 'Poems', poems_path %> </li>
 								 <li><%= link_to 'Songs', songs_path %> </li>
 								 <li><%= link_to 'Add new Ballad', new_place_path %></li>
-								 <li><% if admin_signed_in? %>
-										 		<%= link_to 'All Users', end_users_path %>
-											<% end %> </li>		
+					
 		          </ul>
 		        </li>
+		        		             <li><%= link_to 'Places', places_path %> </li>
+
 		      </ul>
-		      <form class="navbar-form navbar-left" role="search">
-		        <div class="form-group">
-		          <input type="text" class="form-control" placeholder="Search">
-		        </div>
-		        <button type="submit" class="btn btn-default">Search</button>
-		      </form>
+
 		      <ul class="nav navbar-nav navbar-right">
-		      	<% if end_user_signed_in? %>
-							<li><%= link_to 'Logout', destroy_end_user_session_path, method: :delete %></li>
-						<% elsif admin_signed_in? %>
-							<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
-						<% else %>
-							<li><%= link_to 'Signup', new_end_user_registration_path %></li>
-							<li><%= link_to "Login", new_end_user_session_path %></li>
-						<% end %>			           
+		      	           
 		        <li class="dropdown">
 		          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><strong>Menu </strong><span class="caret"></span></a>
 		          <ul class="dropdown-menu">
@@ -174,7 +163,21 @@
 							<% end %>	
 						<li><%= link_to image_tag("admin.png", :style => 'margin-right: 100px;') + 'Admin Controls', new_admin_session_path %></li>
 
+
+
+						<li><% if admin_signed_in? %>
+							<%= link_to 'All Users', end_users_path %>
+						<% end %> </li>	
+
 		          </ul>
+		          <% if end_user_signed_in? %>
+							<li><%= link_to 'Logout', destroy_end_user_session_path, method: :delete %></li>
+						<% elsif admin_signed_in? %>
+							<li><%= link_to "Logout", destroy_admin_session_path, method: :delete %></li>
+						<% else %>
+							<li><%= link_to 'Signup', new_end_user_registration_path %></li>
+							<li><%= link_to "Login", new_end_user_session_path %></li>
+						<% end %>			
 		        </li>
 		      </ul>
 		    </div>
@@ -182,16 +185,9 @@
 		</nav>
 
 		<!-- Hides and shows the 'green menu box' -->
-		<script>
-			$(document).ready(function(){
-				$(".navbar-brand").click(function(){
-			  	$("div.wrapper, div.background, div.main").slideToggle();
-			   });
-			});
-		</script>
+		
 
 		<!-- Creates transparent menu box over the map -->
-		<div class="bodyWrap">
 			<div class="wrapper">
 				<!-- Adds the green box -->
 				<div class="background"></div>
@@ -199,18 +195,16 @@
 					<%= yield %> 
 				</div>
 			</div>
+			<script>
+			$(document).ready(function(){
+				$(".navbar-brand").click(function(){
+			  	$("div.background, div.main").slideToggle();
+			   });
+			});
+		</script>
 
-			<% if notice %>
-				<p class="alert alert-success"><%= notice %></p>
-			<% end %>
-			<% if alert %>
-				<p class="alert alert-danger"><%= alert %></p>
-			<% end %>
 
 			<!-- Adds map to screen -->
 			<div id="map-canvas"></div>		
-		</div>
-	 
-	 </div>
 	</body>
 </html>
