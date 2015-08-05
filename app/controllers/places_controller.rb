@@ -10,6 +10,7 @@ class PlacesController < ApplicationController
 		@place = Place.find(params[:id])
 		@songs = @place.songs
 		@poems = @place.poems
+		@comments = Comment.where(commentable_id: @commentable)
 	end
 
 	def new

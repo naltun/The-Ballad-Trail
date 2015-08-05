@@ -18,7 +18,19 @@
 		<h4>Poems about <%= @place.name %></h4>
 		<p><%= render @poems %></p>
 	</div>
+
 <br>
+
+	<div>
+		<h2>Comments</h2>
+		<% @comments.each do |comment| %>
+		<div class="comment">
+			<p>UserEmail<%= comment.user.email %></p>
+			<p>Content<%= comment.content %></p> 
+		</div>
+		<% end %>	
+	</div>
+
 	<p><% if @place.end_user == current_end_user %></p>
 	<p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
 
@@ -33,7 +45,4 @@
 <p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
 <p><strong><%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
 <% end %>
-
-	
 </div>
-

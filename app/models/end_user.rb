@@ -7,5 +7,6 @@ class EndUser < ActiveRecord::Base
   has_many :poems
   has_many :places
   has_many :composers
+  has_many :comments
 end
 
