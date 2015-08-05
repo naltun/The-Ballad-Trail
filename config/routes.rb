@@ -1,9 +1,15 @@
 Rails.application.routes.draw do
   devise_for :admins
   devise_for :end_users
-	resources :places
-	resources :songs
-	resources :poems
+	resources :places do
+		resources :comments
+	end
+	resources :songs do
+		resources :comments
+	end
+	resources :poems do
+		resources :comments
+	end
 	resources :composers
 	resources :end_users
 
@@ -19,7 +25,4 @@ Rails.application.routes.draw do
 	get '/signup', to: 'application#signup'
 
 	root to: 'application#home'
-
-	
-	
 end

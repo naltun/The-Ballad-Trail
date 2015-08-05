@@ -5,7 +5,12 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+if EndUser.count == 0
+EndUser.create!(
+             email: "example@balladtrail.com",
+            password:              "password",
+             password_confirmation: "password")
+end
 # Drops table data so that each 'rake db:seed' does not add duplicate information
 Place.delete_all
 # Creates rows for Places table

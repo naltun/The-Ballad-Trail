@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804111053) do
+ActiveRecord::Schema.define(version: 20150805170407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 20150804111053) do
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true, using: :btree
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.integer  "end_user_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "comments", ["commentable_id", "commentable_type"], name: "index_comments_on_commentable_id_and_commentable_type", using: :btree
+  add_index "comments", ["end_user_id"], name: "index_comments_on_end_user_id", using: :btree
 
   create_table "composers", force: :cascade do |t|
     t.string   "fname"
@@ -109,6 +121,7 @@ ActiveRecord::Schema.define(version: 20150804111053) do
   add_index "songs", ["composer_id"], name: "index_songs_on_composer_id", using: :btree
   add_index "songs", ["place_id"], name: "index_songs_on_place_id", using: :btree
 
+  add_foreign_key "comments", "end_users"
   add_foreign_key "poems", "composers"
   add_foreign_key "poems", "places"
   add_foreign_key "songs", "composers"
