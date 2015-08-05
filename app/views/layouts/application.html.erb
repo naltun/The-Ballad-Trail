@@ -32,6 +32,8 @@
 			   };
 			   var map = new google.maps.Map(document.getElementById('map-canvas'),
 			       mapOptions);
+
+			   var locations = <%= raw to_place.to_json %>;
 			 }
 			 google.maps.event.addDomListener(window, 'load', initialize);
 			</script>

@@ -4,8 +4,8 @@ class CreatePlaces < ActiveRecord::Migration
   def change
     create_table :places do |t|
       t.string :name
-      t.decimal :latitude
-      t.decimal :longitude
+      t.float :latitude
+      t.float :longitude
       t.string :region
       t.string :image
 
