@@ -23,18 +23,53 @@
 			 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAz0j_R1FllX2cnZ_lJIsgZJtMitbI6vOY">
 			</script>
 			
-			<!-- Initializes map and creates map object -->
+			<!-- Initializes map and creates map object and markers -->
 			<script type="text/javascript">
 			 function initialize() {
-			   var mapOptions = {
-			     center: { lat: 57.331380, lng: -2.320982},
-			     zoom: 10
-			   };
-			   var map = new google.maps.Map(document.getElementById('map-canvas'),
-			       mapOptions);
+					// Sets up coordinates (latitude, longitude) for markers
+					var myLatlng1 = new google.maps.LatLng(<%= latitude(1) %>, <%= longitude(1)%>)
+				 	var myLatlng2 = new google.maps.LatLng(<%= latitude(2) %>, <%= longitude(2) %>)
+				 	var myLatlng3 = new google.maps.LatLng(<%= latitude(3) %>, <%= longitude(3) %>)
+				 	var myLatlng4 = new google.maps.LatLng(<%= latitude(4) %>, <%= longitude(4) %>)
 
-			   var locations = <%= raw to_place.to_json %>;
+				 	// Centers marker over Aberdeen and sets zoom level to 10
+				  var mapOptions = {
+				    center: { lat: 57.331380, lng: -2.320982},
+				    zoom: 10
+				  };
+
+				  // Sets up map
+				  var map = new google.maps.Map(document.getElementById('map-canvas'),
+				      mapOptions);
+
+				  // Markers to be displayed
+				  // Markers contain coordinates set in myLatlng variables, and make a method call to application_helper to display a name from the model Place
+				  var marker1 = new google.maps.Marker({
+				  	position: myLatlng1,
+				  	map: map,
+				   	title: "<%= name(1) %>"
+				  });
+
+				  var marker2 = new google.maps.Marker({
+				  	position: myLatlng2,
+				  	map: map,
+				  	title: "<%= name(2) %>"
+				  });
+
+					var marker3 = new google.maps.Marker({
+			   		position: myLatlng3,
+			   		map: map,
+			   		title: "<%= name(3) %>"
+			   	});
+
+					var marker4 = new google.maps.Marker({
+						position: myLatlng4,
+						map: map,
+						title: "<%= name(4) %>"
+					});
+
 			 }
+
 			 google.maps.event.addDomListener(window, 'load', initialize);
 			</script>
 	</head>
