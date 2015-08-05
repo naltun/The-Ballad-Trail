@@ -18,26 +18,22 @@
 		<h4>Poems about <%= @place.name %></h4>
 		<p><%= render @poems %></p>
 	</div>
+<br>
 	<p><% if @place.end_user == current_end_user %></p>
 	<p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
 
 	<p><strong><%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+<% elsif end_user_signed_in? %>
+<p><%= link_to 'Add new ballad', new_place_path %></p>
 <% else %>
-
 <p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
 <% end %>
+
 <% if admin_signed_in? %>
 <p><strong><%= link_to 'Edit', edit_place_path %></strong></p>
 <p><strong><%= link_to "Destroy", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
 <% end %>
 
-	<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
-<% end %>
-
-
-	<p><strong><%= link_to "Delete", place_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
-	<% else %>
-	<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
-	<% end %>
+	
 </div>
 

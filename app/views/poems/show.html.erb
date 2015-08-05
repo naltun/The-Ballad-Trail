@@ -15,12 +15,20 @@
 		<button type="button" class=".btn-success" data-toggle="collapse" data-target="#demo">Click to view</button>
 		<div id="demo" class="collapse"><p><%= @poem.subtitle %></p></div>
 	</div>
-	<p>
 	<p><% if @poem.end_user == current_end_user %></p>
 	<p><strong><%= link_to 'Edit', edit_poem_path %></strong></p>
-	<p><strong><%= link_to "Delete", poem_path(@poem), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
-	<% else %>
-	<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
-	<% end %>
-	</p>
+
+	<p><strong><%= link_to "Destroy", poem_path(@poem), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+<% elsif end_user_signed_in? %>
+<p><%= link_to 'Add new ballad', new_poem_path %></p>
+<% else %>
+<p><strong><%= link_to 'Sign in to add new ballads', new_end_user_session_path %></strong></p>
+<% end %>
+
+<% if admin_signed_in? %>
+<p><strong><%= link_to 'Edit', edit_poem_path %></strong></p>
+<p><strong><%= link_to "Destroy", poem_path(@place), method: :delete, data: { confirm: "Are you sure?"} %></strong></p>
+<% end %>
+
+	
 </div>
