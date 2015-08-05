@@ -34,6 +34,7 @@ composers = end_user.composers.create([
   { fname: 'Jeannie', lname: 'Robertson', category: 'Singer', bio: 'Jeannie Robertson is a monumental figure in Scottish traditional song whose influence and importance as a preserver of folklore will sustain for as long as traditional ballads are sung. Regina Christina Robertson was born into a traveller family in Aberdeen on October 21, 1908. Her father, Donald, who died a year later, was a piper and her mother, Maria, was a singer with a vast store of songs and stories. Read more - [http://projects.handsupfortrad.scot/hall-of-fame/jeannie-robertson-mbe/]' },  
   ])
 
+Admin.delete_all
 if Admin.count == 0
   Admin.create!(
     email: "mnikole9@gmail.com",
