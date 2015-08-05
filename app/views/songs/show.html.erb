@@ -1,14 +1,20 @@
 <p><%= link_to "Edit", edit_song_path(@song)%></p>
-<h3><%= @song.title %></h3>
-<p><%= @song.place %></p>
-<p><%= @song.description %></p>
-<p><%= @song.composer %></p>
-<p><audio controls>
-  <source src="<%= @song.medialink %>" type="audio/mpeg">
-Your browser does not support the audio element.
-</audio>
-<p><%= @song.lyrics %></p>
 
-
-<%= link_to "Edit", edit_song_path(@song)%>
-<%= link_to "Destroy", song_path(@song), method: :delete, data: { confirm: "Are you sure?"} %>
+<div class="container-fluid">
+	<h4><%= @song.title %></h4>
+	<div>
+		<%= @song.description %>
+		<%= image_tag @song.place.image %>
+		<audio controls>
+			<source src="<%= @song.medialink %>" type="audio/mpeg">
+				Your browser does not support the audio element.
+			</audio>
+		</div>
+		<h4>Lyrics:</h4>
+		<p><%= @song.lyrics %></p>
+	</div>
+	<p>
+		<%= link_to "Edit", edit_song_path(@song)%>
+		<%= link_to "Destroy", song_path(@song), method: :delete, data: { confirm: "Are you sure?"} %>
+	</p>
+</div>

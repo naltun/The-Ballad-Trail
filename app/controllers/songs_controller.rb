@@ -8,8 +8,8 @@ class SongsController < ApplicationController
 	end
 
 	def show
-		@place = Place.where(song_id: @song)
 		@song = Song.find(params[:id])
+		@place = @song.place
 	end
 
 	def new
