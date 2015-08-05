@@ -64,8 +64,8 @@ ActiveRecord::Schema.define(version: 20150804111053) do
 
   create_table "places", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "latitude"
-    t.decimal  "longitude"
+    t.float    "latitude"
+    t.float    "longitude"
     t.string   "region"
     t.string   "image"
     t.datetime "created_at",  null: false

@@ -1,9 +1,16 @@
 module ApplicationHelper 
-  def to_place
-  	@places = []
-	  Place.all.each do |p|
-	    @places.push(p.name, p.latitude, p.longitude)
-	  end
-	  return @places
+	def name(x)
+		@name = Place.find(x).name
+		return @name
+	end
+
+	def latitude(x)
+		@latitude = Place.find(x).latitude
+		return @latitude
+	end
+
+	def longitude(x)
+		@longitude = Place.find(x).longitude
+		return @longitude
 	end
 end
