@@ -16,9 +16,9 @@ RSpec.describe Admin, :type => :model do
     expect(admin).to be_valid
   end
 
-	it "is invalid without an email and password" do
+  it "is invalid without an email and password" do
     admin = FactoryGirl.build(:admin, email: nil, password: nil)
     admin.valid?
     expect(admin.valid?).to eq false
-	end
+  end
 end
